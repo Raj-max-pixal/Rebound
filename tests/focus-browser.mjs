@@ -19,6 +19,10 @@ try {
   await page.getByText("Make time.").waitFor();
   await page.getByText("YOUR REBOUND WORLD").waitFor();
   await page.getByText("FOCUSTOWN · A REBOUND PLACE").waitFor();
+  await page.getByText("STUDY TRACKER").waitFor();
+  await page.getByRole("button", { name: "Start a focus session" }).click();
+  assert.equal(await page.locator("#focusSubject").inputValue(), "Study");
+  assert.equal(await page.locator("#focusDuration").inputValue(), "25");
   await page.getByRole("button", { name: "Moon Library" }).click();
   await page.getByRole("button", { name: "Start a 10-minute mission" }).click();
   assert.equal(await page.locator("#focusSubject").inputValue(), "Moon Library");

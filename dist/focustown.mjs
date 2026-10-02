@@ -1,10 +1,12 @@
+import { icon } from "./icon-kit.mjs";
+
 // FocusTown is an original Rebound activity space; its visuals and copy are not
 // derived from any third-party focus product.
 const key = "rebound-focustown-v1";
 const scenes = [
-  ["Sky Garden", "☁️", "Quiet clouds, tiny goals, and a clear desk."],
-  ["Moon Library", "🌙", "A gentle place for reading and writing."],
-  ["Pixel Park", "🌳", "A bright place for problem solving and practice."],
+  ["Sky Garden", "cloud", "Quiet clouds, tiny goals, and a clear desk."],
+  ["Moon Library", "moon", "A gentle place for reading and writing."],
+  ["Pixel Park", "park", "A bright place for problem solving and practice."],
 ];
 const $ = (selector) => document.querySelector(selector);
 const stored = (() => {
@@ -29,7 +31,7 @@ section.setAttribute("aria-label", "FocusTown activity space");
 
 function sceneData() { return scenes.find(([name]) => name === state.scene) || scenes[0]; }
 function render() {
-  const [name, icon, description] = sceneData();
+  const [name, iconName, description] = sceneData();
   section.innerHTML = `
     <div class="town-heading">
       <p class="eyebrow">FOCUSTOWN · A REBOUND PLACE</p>
@@ -37,14 +39,14 @@ function render() {
       <p>Choose a scene, start a tiny mission, or earn a few sparks in a short game. Your study plan stays in charge.</p>
     </div>
     <div class="town-scene" data-scene="${name}">
-      <div class="town-sky" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i></div>
-      <span class="scene-icon" aria-hidden="true">${icon}</span>
+      <div class="town-sky" aria-hidden="true">${icon("spark", "", "town-spark")} ${icon("spark", "", "town-spark")} ${icon("spark", "", "town-spark")}</div>
+      <span class="scene-icon">${icon(iconName, name, "scene-mark")}</span>
       <div><p class="eyebrow">CURRENT SCENE</p><h3>${name}</h3><p>${description}</p></div>
       <button class="primary" id="townMission">Start a 10-minute mission</button>
     </div>
     <div class="town-grid">
       <article class="town-card"><p class="eyebrow">CHOOSE YOUR PLACE</p>
-        <div class="scene-choices">${scenes.map(([scene, emoji]) => `<button class="scene-choice ${scene === name ? "selected" : ""}" data-scene="${scene}" aria-pressed="${scene === name}">${emoji}<span>${scene}</span></button>`).join("")}</div>
+        <div class="scene-choices">${scenes.map(([scene, iconName]) => `<button class="scene-choice ${scene === name ? "selected" : ""}" data-scene="${scene}" aria-pressed="${scene === name}">${icon(iconName, "")}<span>${scene}</span></button>`).join("")}</div>
       </article>
       <article class="town-card audio-card"><p class="eyebrow">SOUND CORNER</p><h3>Soft study sounds</h3><p>Start or stop a browser-made calm tone. It never auto-plays.</p><button class="quiet" id="townSound">Play soft sound</button></article>
       <article class="town-card game-card"><p class="eyebrow">SPARK DASH</p><h3>Catch the sparks</h3><p id="gameMessage">A 20-second finger warm-up. Best: ${state.gameHighScore} sparks.</p><button class="quiet" id="sparkGame">Play Spark Dash</button></article>

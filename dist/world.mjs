@@ -1,14 +1,16 @@
+import { icon } from "./icon-kit.mjs";
+
 const key = "rebound-world-v1";
 const stylesheet = document.createElement("link");
 stylesheet.rel = "stylesheet";
 stylesheet.href = "world.css";
 document.head.append(stylesheet);
 const companions = [
-  ["Bear", "🐻"],
-  ["Bunny", "🐰"],
-  ["Fox", "🦊"],
-  ["Cat", "🐱"],
-  ["Panda", "🐼"],
+  ["Bear", "bear"],
+  ["Bunny", "bunny"],
+  ["Fox", "fox"],
+  ["Cat", "cat"],
+  ["Panda", "panda"],
 ];
 const $ = (id) => document.getElementById(id);
 
@@ -34,14 +36,13 @@ let state = load();
 const today = () => new Date().toISOString().slice(0, 10);
 const level = () => Math.floor(state.xp / 100) + 1;
 const nextLevel = () => level() * 100;
-const icon = () => companions.find(([name]) => name === state.buddy)?.[1] || "🐻";
+const buddyMark = () => icon(companions.find(([name]) => name === state.buddy)?.[1] || "bear", state.buddy, "buddy-mark");
 const world = () => {
   const minutes = Math.floor(state.xp / 2);
-  if (minutes >= 200) return "🏡🌲🌳🌲";
-  if (minutes >= 100) return "🌲🌳🌿";
-  if (minutes >= 50) return "🌿🌱🌿";
-  if (minutes >= 25) return "🌱🌿";
-  return "🌱";
+  if (minutes >= 200) return `${icon("home", "Home")} ${icon("tree", "Tree")} ${icon("tree", "Tree")}`;
+  if (minutes >= 100) return `${icon("tree", "Tree")} ${icon("tree", "Tree")} ${icon("sprout", "Sprout")}`;
+  if (minutes >= 50) return `${icon("sprout", "Sprout")} ${icon("sprout", "Sprout")}`;
+  return icon("sprout", "Sprout");
 };
 
 const panel = document.createElement("section");
@@ -74,13 +75,13 @@ function render() {
     </div>
     <div class="world-scene" aria-label="${state.buddy}'s study world">
       <span class="world-land">${world()}</span>
-      <span class="world-buddy" aria-hidden="true">${icon()}</span>
-      <span class="world-stars" aria-hidden="true">✦ ✧</span>
+      <span class="world-buddy">${buddyMark()}</span>
+      <span class="world-stars">${icon("spark", "", "mini-spark")}</span>
     </div>
     <div class="world-stats">
       <div><strong>Level ${level()}</strong><span>${state.xp} XP · ${state.coins} sparks</span><progress value="${progress}" max="100"></progress><small>${nextLevel() - state.xp} XP to the next level</small></div>
       <div><strong>${state.comebacks}</strong><span>comebacks</span><small>Returning after a hard day counts too.</small></div>
-      <label>Buddy<select id="buddyPicker">${companions.map(([name, emoji]) => `<option value="${name}" ${name === state.buddy ? "selected" : ""}>${emoji} ${name}</option>`).join("")}</select></label>
+      <label>Buddy<select id="buddyPicker">${companions.map(([name]) => `<option value="${name}" ${name === state.buddy ? "selected" : ""}>${name}</option>`).join("")}</select></label>
     </div>`;
   $("buddyPicker").onchange = (event) => {
     state.buddy = event.target.value;
@@ -100,7 +101,7 @@ function earn(amount, kind) {
   if (level() > previousLevel) state.awards = [...new Set([...state.awards, `level-${level()}`])];
   save();
   render();
-  if (level() > previousLevel) document.dispatchEvent(new CustomEvent("rebound:celebrate", { detail: { title: `Level ${level()} unlocked!`, body: `${icon()} Your buddy is celebrating your progress.` } }));
+  if (level() > previousLevel) document.dispatchEvent(new CustomEvent("rebound:celebrate", { detail: { title: `Level ${level()} unlocked!`, body: "Your buddy is celebrating your progress." } }));
 }
 
 window.addEventListener("rebound:focus-finished", (event) => {
@@ -117,7 +118,7 @@ document.addEventListener("rebound:celebrate", (event) => {
   const toast = document.createElement("div");
   toast.className = "world-celebration";
   toast.setAttribute("role", "status");
-  toast.innerHTML = `<span aria-hidden="true">${icon()} ✦</span><strong>${event.detail?.title || "New level unlocked!"}</strong><small>${event.detail?.body || "Your next step counts."}</small>`;
+  toast.innerHTML = `<span>${buddyMark()}${icon("spark", "", "celebration-spark")}</span><strong>${event.detail?.title || "New level unlocked!"}</strong><small>${event.detail?.body || "Your next step counts."}</small>`;
   document.body.append(toast);
   requestAnimationFrame(() => toast.classList.add("show"));
   window.setTimeout(() => toast.remove(), 4200);
