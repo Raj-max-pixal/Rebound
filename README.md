@@ -22,6 +22,7 @@ The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any stat
 - Recurring weekday timetable blocks such as Physics Monday–Friday 18:00–20:00 followed by Chemistry 20:00–21:00; overlap prevention; page reminders; and calendar export.
 - Cloud-backed device-key focus history, daily goals, streaks, subject insights, opt-in aliases, invite-code study rooms, and an opt-in seven-day leaderboard.
 - Optional unpacked Chrome/Edge Focus Guard extension: selected-domain blocking, active-tab daily browser allowances, YouTube Shorts and Instagram Reels restrictions, and YouTube Study Mode with an allowlist.
+- Rebound World: choose a study buddy, earn XP and sparks from saved focus time, grow a small study world, use a five-minute rescue when starting feels hard, and choose a low-energy 10-minute day without losing the plan.
 
 ## How the scheduler works
 `dist/planner.mjs` sorts unfinished tasks by ascending due date, then high priority for tied dates, then stable ID. It fills available time from today onward through the deadline, cutting sessions at 25 minutes. It never schedules above a day's capacity. An overdue assignment may use today's time but remains flagged. Unallocated work stays visible instead of being silently discarded. The planner does not optimize all possible orderings or understand topic prerequisites.

@@ -17,6 +17,12 @@ try {
 
   await page.goto("http://127.0.0.1:4173");
   await page.getByText("Make time.").waitFor();
+  await page.getByText("YOUR REBOUND WORLD").waitFor();
+  await page.locator("#buddyPicker").selectOption("Fox");
+  await page.getByRole("button", { name: "5-minute rescue" }).click();
+  await page.getByRole("tab", { name: "Focus timer" }).waitFor();
+  assert.equal(await page.locator("#focusSubject").inputValue(), "Quick review");
+  assert.equal(await page.locator("#focusDuration").inputValue(), "5");
   await page.getByText("Focus history connected").waitFor();
 
   await page.getByRole("tab", { name: "Weekly timetable" }).click();

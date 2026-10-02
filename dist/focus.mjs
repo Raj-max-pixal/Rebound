@@ -1,3 +1,4 @@
+import "./world.mjs";
 import {dateKey,defaultSettings,validateSchedule,validateSettings,elapsedMs,timerRemaining,activeSchedule,streakDays,scheduleICS,weekdays} from './focus-core.mjs';
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let settings=defaultSettings(),revision=0,logs=[],profile={alias:'Quiet Otter',exam:'General',public:false},ready=false,timer=null,room='',tab='timer',finishBusy=false,linkedTask=null,round=1,soundContext,soundNode,soundGain,notificationShown='',storageOK=true;
