@@ -44,3 +44,6 @@ No LMS import, automatic homework extraction, AI tutoring, automatic messages, o
 
 ## AI disclosure
 See `submission/DEVPOST-DRAFT.md`. AI assistance produced the initial concept proposal, code, design, tests, documentation, and demo script. The submitting student must review these, understand the final project, and truthfully describe their own contributions and learning.
+
+## Project credit
+Created by **RAJ / MULTIMAX** for the CSC Back-to-School Hackathon 2026.
