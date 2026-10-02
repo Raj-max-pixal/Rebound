@@ -15,6 +15,7 @@ let active = null;
 let room = localStorage.getItem(roomKey) || "";
 let soundContext;
 let soundSource;
+const chatHistory = [];
 const tickets = [["Quick reset", "sprout", 5, "A five-minute entry ticket."],["Library block", "moon", 25, "A classic focused study block."],["Deep practice", "park", 50, "A longer problem-solving block."]];
 
 function token() {
@@ -106,8 +107,13 @@ function planContext() {
 }
 async function askCoach(prompt) {
   const question = String(prompt || $("coachQuestion").value).trim(); if (!question) return;
-  $("coachReply").textContent = "Thinking about a small next step…"; $("coachNotice").textContent = "";
-  try { const result = await call("coach", "POST", { prompt: question, context: planContext() }); $("coachReply").textContent = result.reply; $("coachNotice").textContent = result.provider === "featherless" ? "AI response via Featherless. The key remains on the server." : (result.notice || "Local planning guide."); } catch (error) { $("coachReply").textContent = error.message; }
+  chatHistory.push({ role: "you", text: question }); renderChat("Thinking about a small next step…"); $("coachQuestion").value = "";
+  try { const result = await call("coach", "POST", { prompt: question, context: planContext() }); chatHistory.push({ role: "coach", text: result.reply }); $("coachNotice").textContent = result.provider === "featherless" ? "AI response via Featherless. The key remains on the server." : (result.notice || "Local planning guide."); renderChat(); } catch (error) { chatHistory.push({ role: "coach", text: error.message }); renderChat(); }
+}
+function renderChat(pending = "") {
+  const thread = $("coachThread"); if (!thread) return;
+  thread.innerHTML = [...chatHistory, ...(pending ? [{ role: "coach pending", text: pending }] : [])].map((message) => `<p class="chat-bubble ${message.role.replace(" ", "-")}"><strong>${message.role.startsWith("you") ? "You" : "Rebound Coach"}</strong><span>${message.text.replace(/[<>&"]/g, "")}</span></p>`).join("") || '<p class="muted">Ask a question to begin your private coaching chat.</p>';
+  thread.scrollTop = thread.scrollHeight;
 }
 async function toggleSound() {
   if (soundContext) { await soundContext.close(); soundContext = null; soundSource = null; $("soundButton").textContent = "Play sound"; return; }
@@ -129,7 +135,9 @@ function bind() {
   $("saveReason").onclick = () => { localStorage.setItem(reasonKey, $("reasonInput").value.trim()); $("reasonStatus").textContent = "Saved privately in this browser."; };
   document.querySelectorAll("[data-minutes]").forEach((button) => button.onclick = () => { if (active) return; selectedMinutes = Number(button.dataset.minutes); document.querySelectorAll("[data-minutes]").forEach((item) => item.classList.toggle("selected", item === button)); renderClock(); });
   $("startFocus").onclick = start; $("endFocus").onclick = () => finish(true); $("soundButton").onclick = toggleSound; $("createRoom").onclick = createRoom; $("joinRoom").onclick = joinRoom; $("refreshRoom").onclick = refreshRoom;
-  $("askCoach").onclick = () => askCoach(); document.querySelectorAll("[data-coach]").forEach((button) => button.onclick = () => { $("coachQuestion").value = button.dataset.coach; askCoach(button.dataset.coach); });
+  const chatStyles = document.createElement("style"); chatStyles.textContent = ".coach-thread{display:grid;gap:10px;max-height:275px;overflow:auto;padding-right:4px}.chat-bubble{display:grid;gap:4px;margin:0!important;padding:11px 12px;border-radius:12px;background:#eef5ff;color:var(--area-ink)!important;font-size:14px}.chat-bubble strong{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#557bb3}.chat-bubble.you{margin-left:18px!important;background:#fff0df}.chat-bubble.you strong{color:#ae643e}.chat-bubble.coach-pending{opacity:.7}.coach-answer{display:flex;flex-direction:column}.coach-answer .coach-thread{margin-top:8px;flex:1}"; document.head.append(chatStyles);
+  const thread = document.createElement("div"); thread.id = "coachThread"; thread.className = "coach-thread"; thread.setAttribute("aria-live", "polite"); $("coachReply").replaceWith(thread); renderChat();
+  $("askCoach").textContent = "Send to Coach"; $("askCoach").onclick = () => askCoach(); $("coachQuestion").onkeydown = (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); askCoach(); } }; document.querySelectorAll("[data-coach]").forEach((button) => button.onclick = () => { $("coachQuestion").value = button.dataset.coach; askCoach(button.dataset.coach); });
   $("breathButton").onclick = () => { const ring = $("breathRing"); ring.classList.toggle("active"); $("breathText").textContent = ring.classList.contains("active") ? "Breathe in · breathe out" : "Ready"; $("breathButton").textContent = ring.classList.contains("active") ? "Stop reset" : "Start reset"; };
   renderClock(); setInterval(renderClock, 1000); refreshRoom(); loadMomentum();
 }

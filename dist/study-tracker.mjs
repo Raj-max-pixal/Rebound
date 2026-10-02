@@ -1,5 +1,10 @@
 import { icon } from "./icon-kit.mjs";
 
+const trackerStyles = document.createElement("link");
+trackerStyles.rel = "stylesheet";
+trackerStyles.href = "study-tracker.css";
+document.head.append(trackerStyles);
+
 const tracker = document.createElement("section");
 tracker.id = "studyTracker";
 tracker.setAttribute("aria-label", "Study tracker");
