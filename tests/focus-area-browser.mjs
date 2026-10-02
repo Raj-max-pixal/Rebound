@@ -11,6 +11,11 @@ try {
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(`${process.env.REBOUND_URL || "http://127.0.0.1:4173"}/focus-area.html`);
   await page.getByRole("heading", { name: "Find a place. Make a little progress." }).waitFor();
+  await page.locator("#themePicker").selectOption("forest");
+  await page.getByRole("button", { name: "I only have 20 minutes" }).click();
+  await page.getByText(/For the next 20 minutes|Start tiny/).waitFor();
+  await page.getByRole("button", { name: "Library block" }).click();
+  assert.equal(await page.locator("#areaClock").textContent(), "25:00");
   await page.getByRole("button", { name: "Night Library" }).click();
   await page.getByText("Night Library is ready for your next step.").waitFor();
   await page.getByRole("button", { name: "5 minute rescue" }).click();

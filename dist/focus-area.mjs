@@ -4,6 +4,7 @@ const $ = (id) => document.getElementById(id);
 const deviceKey = "rebound-focus-device";
 const reasonKey = "rebound-focus-reason";
 const roomKey = "rebound-room";
+const themeKey = "rebound-focus-theme";
 const scenes = [
   ["Window Desk", "cloud", "A bright space for a five-minute restart."],
   ["Night Library", "moon", "A quiet space for reading and revision."],
@@ -14,6 +15,7 @@ let active = null;
 let room = localStorage.getItem(roomKey) || "";
 let soundContext;
 let soundSource;
+const tickets = [["Quick reset", "sprout", 5, "A five-minute entry ticket."],["Library block", "moon", 25, "A classic focused study block."],["Deep practice", "park", 50, "A longer problem-solving block."]];
 
 function token() {
   let value = localStorage.getItem(deviceKey);
@@ -46,6 +48,10 @@ function renderScenes() {
     $("spaceGrid").querySelectorAll(".space-card").forEach((item) => item.classList.toggle("selected", item === card));
     $("companionMessage").textContent = `${card.dataset.scene} is ready for your next step.`;
   };
+}
+function renderTickets() {
+  $("ticketRoutes").innerHTML = tickets.map(([name, iconName, duration, detail], index) => `<button class="ticket-route ${duration === selectedMinutes ? "selected" : ""}" data-ticket="${index}">${icon(iconName, "")}<strong>${name}</strong><small>${duration} min · ${detail}</small></button>`).join("");
+  $("ticketRoutes").onclick = (event) => { const ticket = event.target.closest("[data-ticket]"); if (!ticket || active) return; const [, , duration] = tickets[Number(ticket.dataset.ticket)]; selectedMinutes = duration; document.querySelectorAll("[data-minutes]").forEach((item) => item.classList.toggle("selected", Number(item.dataset.minutes) === duration)); renderTickets(); renderClock(); setStatus(`${ticket.querySelector("strong").textContent} ticket selected. Start when ready.`); };
 }
 async function start() {
   if (active) return;
@@ -95,6 +101,14 @@ async function loadMomentum() {
     $("weekBars").innerHTML = values.map((value, index) => `<div><i style="height:${Math.max(4, value / max * 100)}%"></i><span>${days[index].toLocaleDateString(undefined, { weekday: "narrow" })}</span></div>`).join("");
   } catch { $("momentumDetail").textContent = "Study history will appear after your first saved session."; }
 }
+function planContext() {
+  try { const plan = JSON.parse(localStorage.getItem("rebound-plan-v1") || "{}"); return { availableMinutes: Math.max(1, Math.min(720, Number(plan.todayBudget) || selectedMinutes)), tasks: Array.isArray(plan.tasks) ? plan.tasks.filter((task) => Number(task.done || 0) < Number(task.minutes || 0)).slice(0, 8).map((task) => task.title) : [] }; } catch { return { availableMinutes: selectedMinutes, tasks: [] }; }
+}
+async function askCoach(prompt) {
+  const question = String(prompt || $("coachQuestion").value).trim(); if (!question) return;
+  $("coachReply").textContent = "Thinking about a small next step…"; $("coachNotice").textContent = "";
+  try { const result = await call("coach", "POST", { prompt: question, context: planContext() }); $("coachReply").textContent = result.reply; $("coachNotice").textContent = result.provider === "featherless" ? "AI response via Featherless. The key remains on the server." : (result.notice || "Local planning guide."); } catch (error) { $("coachReply").textContent = error.message; }
+}
 async function toggleSound() {
   if (soundContext) { await soundContext.close(); soundContext = null; soundSource = null; $("soundButton").textContent = "Play sound"; return; }
   const choice = $("soundSelect").value;
@@ -108,12 +122,14 @@ async function toggleSound() {
 }
 function bind() {
   $("companionMark").innerHTML = icon("bear", "Focus Area companion");
-  $("soundIcon").innerHTML = icon("sound", ""); $("usersIcon").innerHTML = icon("users", ""); $("chartIcon").innerHTML = icon("chart", "");
-  renderScenes();
+  $("soundIcon").innerHTML = icon("sound", ""); $("usersIcon").innerHTML = icon("users", ""); $("chartIcon").innerHTML = icon("chart", ""); $("coachIcon").innerHTML = icon("spark", "");
+  const savedTheme = localStorage.getItem(themeKey) || "sky"; document.body.dataset.areaTheme = savedTheme; $("themePicker").value = savedTheme; $("themePicker").onchange = () => { document.body.dataset.areaTheme = $("themePicker").value; localStorage.setItem(themeKey, $("themePicker").value); };
+  renderScenes(); renderTickets();
   $("reasonInput").value = localStorage.getItem(reasonKey) || "";
   $("saveReason").onclick = () => { localStorage.setItem(reasonKey, $("reasonInput").value.trim()); $("reasonStatus").textContent = "Saved privately in this browser."; };
   document.querySelectorAll("[data-minutes]").forEach((button) => button.onclick = () => { if (active) return; selectedMinutes = Number(button.dataset.minutes); document.querySelectorAll("[data-minutes]").forEach((item) => item.classList.toggle("selected", item === button)); renderClock(); });
   $("startFocus").onclick = start; $("endFocus").onclick = () => finish(true); $("soundButton").onclick = toggleSound; $("createRoom").onclick = createRoom; $("joinRoom").onclick = joinRoom; $("refreshRoom").onclick = refreshRoom;
+  $("askCoach").onclick = () => askCoach(); document.querySelectorAll("[data-coach]").forEach((button) => button.onclick = () => { $("coachQuestion").value = button.dataset.coach; askCoach(button.dataset.coach); });
   $("breathButton").onclick = () => { const ring = $("breathRing"); ring.classList.toggle("active"); $("breathText").textContent = ring.classList.contains("active") ? "Breathe in · breathe out" : "Ready"; $("breathButton").textContent = ring.classList.contains("active") ? "Stop reset" : "Start reset"; };
   renderClock(); setInterval(renderClock, 1000); refreshRoom(); loadMomentum();
 }
