@@ -18,6 +18,10 @@ The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any stat
 - Editable teacher-request draft; nothing is sent automatically.
 - Browser-local persistence, validated JSON backup/restore, print all seven days.
 - Responsive interface, keyboard tabs, labeled forms, native modal dialogs, escaped task text.
+- Focus workspace with Pomodoro, countdown, and stopwatch modes; subject tags; browser-generated rain-like, white, and brown noise; scheduled breaks; and commitment mode that locks controls inside Rebound until the timer ends.
+- Recurring weekday timetable blocks such as Physics Monday–Friday 18:00–20:00 followed by Chemistry 20:00–21:00; overlap prevention; page reminders; and calendar export.
+- Cloud-backed device-key focus history, daily goals, streaks, subject insights, opt-in aliases, invite-code study rooms, and an opt-in seven-day leaderboard.
+- Optional unpacked Chrome/Edge Focus Guard extension: selected-domain blocking, active-tab daily browser allowances, YouTube Shorts and Instagram Reels restrictions, and YouTube Study Mode with an allowlist.
 
 ## How the scheduler works
 `dist/planner.mjs` sorts unfinished tasks by ascending due date, then high priority for tied dates, then stable ID. It fills available time from today onward through the deadline, cutting sessions at 25 minutes. It never schedules above a day's capacity. An overdue assignment may use today's time but remains flagged. Unallocated work stays visible instead of being silently discarded. The planner does not optimize all possible orderings or understand topic prerequisites.
@@ -25,7 +29,7 @@ The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any stat
 `dist/app.mjs` connects inputs and completion actions to this pure scheduler. Completing a session increments task progress and decreases today's remaining budget. New dates reset today's budget to the default. All state lives in localStorage under `rebound-plan-v1`; no assignment data is sent to a backend.
 
 ## Costs and privacy
-Runtime API cost: $0. No paid APIs, subscriptions, advertising, trackers, remote fonts, database, or third-party runtime dependencies. Existing ChatGPT/Codex access was used for development; this is not a claim that development AI is universally free. Hosting is through the user's available Sites capability, subject to its availability and terms. The source remains portable to another static host.
+Runtime API cost: $0. No paid AI APIs, subscriptions, advertising, trackers, or remote fonts. Focus schedules, rooms, aliases, and session history use the Site database under a random browser device key; catch-up assignments remain browser-local. Existing ChatGPT/Codex access was used for development; this is not a claim that development AI is universally free. Hosting is through the user's available Sites capability, subject to its availability and terms.
 
 Browser storage is device-local, not encrypted storage or multi-device sync. Do not enter sensitive personal records. Clearing site data removes the plan. The hosting provider receives normal web requests. Network access is needed to load the site; offline reload/install support is not implemented. Once loaded, planning uses local JavaScript.
 
@@ -35,7 +39,7 @@ Browser storage is device-local, not encrypted storage or multi-device sync. Do 
 The browser check script uses a local installed Playwright and Edge path. For another computer, adapt those two paths or install Playwright yourself; it is not a runtime dependency. Native WebMCP was unavailable in the browser used for verification; its optional, feature-detected read-only tool has not been validated in a supported native context. Browser functionality does not depend on it.
 
 ## Scope limitations
-No LMS import, automatic homework extraction, AI tutoring, notifications, account sync, or automatic messages. Daily default is uniform across the next six days; today can be adjusted separately. It schedules study minutes, not wall-clock calendar events or breaks. Estimates are supplied by the student. Multi-tab concurrent edits are not synchronized; the app warns to reload. Impact has not yet been tested with real students.
+No LMS import, automatic homework extraction, AI tutoring, automatic messages, or real-user impact study. The focus timer records elapsed time, not verified attention. Commitment mode only locks Rebound controls; it cannot prevent closing the browser or clearing storage. The optional extension works only in the installed desktop Chrome/Edge profile. It cannot block phone apps, another browser, device home screens, extension removal, or all adult content. Its daily limit is approximate active-tab time, and YouTube/Instagram feed restrictions depend on their current desktop markup. Impact has not yet been tested with real students.
 
 ## AI disclosure
 See `submission/DEVPOST-DRAFT.md`. AI assistance produced the initial concept proposal, code, design, tests, documentation, and demo script. The submitting student must review these, understand the final project, and truthfully describe their own contributions and learning.

@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": {"start":"node serve.mjs","test":"node --test tests/planner.test.mjs"}
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node --test tests/planner.test.mjs tests/focus.test.mjs",
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.11",
+    "drizzle-orm": "^0.45.3"
+  }
 }

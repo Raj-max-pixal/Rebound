@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+const p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts.build='node build.mjs';p.scripts.test='node --test tests/planner.test.mjs tests/focus.test.mjs';fs.writeFileSync('package.json',JSON.stringify(p,null,2)+'\n');
+const manifest=JSON.parse(fs.readFileSync('.openai/hosting.json','utf8'));delete manifest.static;manifest.d1='DB';manifest.r2=null;fs.writeFileSync('.openai/hosting.json',JSON.stringify(manifest,null,2)+'\n');
+let guard=fs.readFileSync('extension/feed-guard.js','utf8').replace("document.getElementById('rebound-block-reason').textContent=text;","if(document.getElementById('rebound-block-reason').textContent!==text)document.getElementById('rebound-block-reason').textContent=text;").replace("style.textContent='';approved=true;","if(style.textContent)style.textContent='';approved=true;");fs.writeFileSync('extension/feed-guard.js',guard);
+let core=fs.readFileSync('dist/focus-core.mjs','utf8').replace("domains:['instagram.com','tiktok.com','reddit.com']","domains:['tiktok.com','reddit.com']");fs.writeFileSync('dist/focus-core.mjs',core);fs.writeFileSync('extension/focus-core.mjs',core);
