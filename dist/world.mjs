@@ -108,6 +108,20 @@ window.addEventListener("rebound:focus-finished", (event) => {
 });
 window.addEventListener("rebound:assignment-completed", () => earn(20, "assignment"));
 window.addEventListener("rebound:bad-day-complete", () => earn(15, "comeback"));
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-complete]");
+  if (!button || button.disabled) return;
+  window.setTimeout(() => earn(20, "assignment"), 0);
+});
+document.addEventListener("rebound:celebrate", (event) => {
+  const toast = document.createElement("div");
+  toast.className = "world-celebration";
+  toast.setAttribute("role", "status");
+  toast.innerHTML = `<span aria-hidden="true">${icon()} ✦</span><strong>${event.detail?.title || "New level unlocked!"}</strong><small>${event.detail?.body || "Your next step counts."}</small>`;
+  document.body.append(toast);
+  requestAnimationFrame(() => toast.classList.add("show"));
+  window.setTimeout(() => toast.remove(), 4200);
+});
 
 window.addEventListener("rebound:rescue", () => {
   window.location.hash = "#focus";
