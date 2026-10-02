@@ -23,6 +23,7 @@ The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any stat
 - Cloud-backed device-key focus history, daily goals, streaks, subject insights, opt-in aliases, invite-code study rooms, and an opt-in seven-day leaderboard.
 - Optional unpacked Chrome/Edge Focus Guard extension: selected-domain blocking, active-tab daily browser allowances, YouTube Shorts and Instagram Reels restrictions, and YouTube Study Mode with an allowlist.
 - Rebound World: choose a study buddy, earn XP and sparks from saved focus time, grow a small study world, use a five-minute rescue when starting feels hard, and choose a low-energy 10-minute day without losing the plan.
+- FocusTown: an original child-friendly activity page with selectable study scenes, opt-in browser-generated ambient audio, animated spark effects, a 20-second Spark Dash game, and a direct 10-minute focus mission.
 
 ## How the scheduler works
 `dist/planner.mjs` sorts unfinished tasks by ascending due date, then high priority for tied dates, then stable ID. It fills available time from today onward through the deadline, cutting sessions at 25 minutes. It never schedules above a day's capacity. An overdue assignment may use today's time but remains flagged. Unallocated work stays visible instead of being silently discarded. The planner does not optimize all possible orderings or understand topic prerequisites.
@@ -44,6 +45,8 @@ No LMS import, automatic homework extraction, AI tutoring, automatic messages, o
 
 ## AI disclosure
 See `submission/DEVPOST-DRAFT.md`. AI assistance produced the initial concept proposal, code, design, tests, documentation, and demo script. The submitting student must review these, understand the final project, and truthfully describe their own contributions and learning.
+
+See [`submission/CREDIT-INTEGRATION-PLAN.md`](submission/CREDIT-INTEGRATION-PLAN.md) for the planned secure use of Featherless, n8n, Render, and Gen.xyz credits.
 
 ## Project credit
 Created by **RAJ / MULTIMAX** for the CSC Back-to-School Hackathon 2026.

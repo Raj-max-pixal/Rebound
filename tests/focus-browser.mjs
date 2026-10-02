@@ -18,6 +18,11 @@ try {
   await page.goto("http://127.0.0.1:4173");
   await page.getByText("Make time.").waitFor();
   await page.getByText("YOUR REBOUND WORLD").waitFor();
+  await page.getByText("FOCUSTOWN · A REBOUND PLACE").waitFor();
+  await page.getByRole("button", { name: "Moon Library" }).click();
+  await page.getByRole("button", { name: "Start a 10-minute mission" }).click();
+  assert.equal(await page.locator("#focusSubject").inputValue(), "Moon Library");
+  assert.equal(await page.locator("#focusDuration").inputValue(), "10");
   await page.locator("#buddyPicker").selectOption("Fox");
   await page.getByRole("button", { name: "5-minute rescue" }).click();
   await page.getByRole("tab", { name: "Focus timer" }).waitFor();
