@@ -24,6 +24,7 @@ The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any stat
 - Optional unpacked Chrome/Edge Focus Guard extension: selected-domain blocking, active-tab daily browser allowances, YouTube Shorts and Instagram Reels restrictions, and YouTube Study Mode with an allowlist.
 - Rebound World: choose a study buddy, earn XP and sparks from saved focus time, grow a small study world, use a five-minute rescue when starting feels hard, and choose a low-energy 10-minute day without losing the plan.
 - FocusTown: an original child-friendly activity page with selectable study scenes, opt-in browser-generated ambient audio, animated spark effects, a 20-second Spark Dash game, and a direct 10-minute focus mission.
+- Focus Area: a separate original page for scene selection, 5/25/50-minute sessions, optional browser-made soundscapes, invite-code study rooms, a private motivation note, a paced reset, and a seven-day momentum chart.
 
 ## How the scheduler works
 `dist/planner.mjs` sorts unfinished tasks by ascending due date, then high priority for tied dates, then stable ID. It fills available time from today onward through the deadline, cutting sessions at 25 minutes. It never schedules above a day's capacity. An overdue assignment may use today's time but remains flagged. Unallocated work stays visible instead of being silently discarded. The planner does not optimize all possible orderings or understand topic prerequisites.
