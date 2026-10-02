@@ -322,7 +322,7 @@ Their tools, resources, and support helped participants turn ideas into working 
 
 <div align="center">
 
-### 🚀 [YOUR NAME / TEAM NAME]
+### 🚀 [ RAJ / MULTIMAX]
 
 💻 Developer
 🎨 Product & Design
