@@ -9,10 +9,16 @@ const emptyAcademic=()=>({terms:[],holidays:[],subjects:[],blocks:[],exams:[]});
 const isDate=x=>/^\d{4}-\d{2}-\d{2}$/.test(x)&&Number.isFinite(Date.parse(x+'T12:00:00'));
 const academicState=input=>{const value=input&&typeof input==='object'?input:emptyAcademic(),cleanText=(x,max)=>String(x||'').trim().slice(0,max),unique=new Set();const list=(name,max,map)=>{if(!Array.isArray(value[name])||value[name].length>max)throw Error(`Keep at most ${max} ${name}.`);return value[name].map(map);};const terms=list('terms',12,x=>{const name=cleanText(x.name,60);if(!name||!isDate(x.start)||!isDate(x.end)||x.start>x.end)throw Error('Each term needs a name and valid date range.');return {id:cleanText(x.id,80)||crypto.randomUUID(),name,start:x.start,end:x.end};});const holidays=list('holidays',80,x=>{const name=cleanText(x.name,60);if(!name||!isDate(x.start)||!isDate(x.end)||x.start>x.end)throw Error('Each holiday needs a name and valid date range.');return {id:cleanText(x.id,80)||crypto.randomUUID(),name,start:x.start,end:x.end};});const subjects=list('subjects',40,x=>{const name=cleanText(x.name,40),color=/^#[0-9a-fA-F]{6}$/.test(x.color)?x.color:'#527bb5';if(!name||unique.has(name.toLowerCase()))throw Error('Subject names must be unique.');unique.add(name.toLowerCase());return {id:cleanText(x.id,80)||crypto.randomUUID(),name,color};});const blocks=list('blocks',120,x=>{const subject=cleanText(x.subject,40),label=cleanText(x.label,60),week=x.week==='B'?'B':'A',day=Number(x.day),start=cleanText(x.start,5),end=cleanText(x.end,5);if(!subject||!label||!Number.isInteger(day)||day<0||day>6||!/^\d{2}:\d{2}$/.test(start)||!/^\d{2}:\d{2}$/.test(end)||start>=end)throw Error('Each timetable block needs a subject, day, and valid time.');return {id:cleanText(x.id,80)||crypto.randomUUID(),subject,label,week,day,start,end};});const exams=list('exams',80,x=>{const title=cleanText(x.title,80),subject=cleanText(x.subject,40),date=cleanText(x.date,10);if(!title||!subject||!isDate(date))throw Error('Each exam needs a title, subject, and valid date.');return {id:cleanText(x.id,80)||crypto.randomUUID(),title,subject,date,room:cleanText(x.room,30)};});return {terms,holidays,subjects,blocks,exams};};
 export async function api(request,env){try{
- if(!env.DB)return json({error:'Shared storage is unavailable. Your current timer stays on this device.'},503);
  const url=new URL(request.url),path=url.pathname,now=Date.now();
  if(!['GET','POST','PUT','DELETE'].includes(request.method))return json({error:'Unsupported method'},405);
  if(request.method!=='GET'&&request.headers.get('Origin')&&request.headers.get('Origin')!==url.origin)return json({error:'Origin mismatch'},403);
+ if(path==='/api/auth-config'&&request.method==='GET'){
+  const urlValue=String(env.SUPABASE_URL||'').replace(/\/$/,'');
+  const anonKey=String(env.SUPABASE_ANON_KEY||'');
+  const enabled=/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(urlValue)&&anonKey.length>40;
+  return json({enabled,url:enabled?urlValue:null,anonKey:enabled?anonKey:null,providers:{email:enabled,google:enabled}});
+ }
+ if(!env.DB)return json({error:'Shared storage is unavailable. Your current timer stays on this device.'},503);
  if(Number(request.headers.get('content-length')||0)>100000)return json({error:'Request too large'},413);
  const token=(request.headers.get('Authorization')||'').replace(/^Bearer /,'');if(!/^[a-f0-9]{64}$/.test(token))return json({error:'Missing device credential'},401);const owner=await hash(token);
  const db=env.DB,query=(s,...args)=>db.prepare(s).bind(...args);
