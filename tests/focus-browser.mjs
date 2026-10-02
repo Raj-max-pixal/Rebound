@@ -15,7 +15,7 @@ try {
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("dialog", (dialog) => dialog.accept());
 
-  await page.goto("http://127.0.0.1:4173");
+  await page.goto(process.env.REBOUND_URL || "http://127.0.0.1:4173");
   await page.getByText("Make time.").waitFor();
   await page.getByText("YOUR REBOUND WORLD").waitFor();
   await page.getByText("FOCUSTOWN · A REBOUND PLACE").waitFor();
