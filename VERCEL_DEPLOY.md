@@ -6,4 +6,4 @@ Vercel serves the Rebound frontend from `dist`. Its `/api/*` requests proxy to t
 2. Set the build command to `node build.mjs` and the output directory to `dist`.
 3. Deploy. Then add the Vercel production URL to Supabase Authentication > URL Configuration as both the Site URL and an allowed redirect URL.
 
-The profile editor requires the SQL migrations in `supabase/migrations/0001_rebound.sql` and `0002_profile_details.sql` to be run once in Supabase SQL Editor. The profile uses row-level security: only the authenticated user can read or edit their own row.
+The first profile version stores its private fields in the authenticated user's Supabase account metadata, so it works without a migration. The SQL migrations remain ready for a future shared profile table and use row-level security.
