@@ -1,6 +1,7 @@
 node_modules/
 .sites-runtime/
 dist_app/
+dist_release/
 dist/*.exe
 dist/*.blockmap
 dist/builder-*
