@@ -1,3 +1,4 @@
+import './profile.mjs';
 const storageKey='rebound-auth-prompt-dismissed';
 const basePath=location.pathname.replace(/[^/]*$/,'')||'/';
 let config=null,client=null,authBusy=false,signedIn=false;
@@ -20,7 +21,7 @@ const fields=()=>({email:document.getElementById('authEmail').value.trim(),passw
 function usable(){return config?.enabled&&client;}
 function setAvailability(){const unavailable=document.getElementById('authUnavailable');unavailable.hidden=usable();if(!usable())unavailable.textContent='Sign-in needs this project’s Supabase connection. Guest mode is available while it is configured.';}
 function requireConnection(){if(usable())return true;status('Sign-in is not connected yet. Add SUPABASE_URL and SUPABASE_ANON_KEY in the live Site settings, then enable Email and Google in Supabase.');return false;}
-function renderAccount(user){signedIn=!!user;const b=document.getElementById('accountButton');if(!b)return;b.innerHTML=icon+'<span></span>';b.querySelector('span').textContent=user?.email?user.email.split('@')[0]:'Guest';b.title=user?.email?`Signed in as ${user.email}`:'Using Rebound as a guest';}
+function renderAccount(user){signedIn=!!user;const b=document.getElementById('accountButton');if(!b)return;b.innerHTML=icon+'<span></span>';b.querySelector('span').textContent=user?.email?user.email.split('@')[0]:'Guest';b.title=user?.email?`Signed in as ${user.email}`:'Using Rebound as a guest';window.dispatchEvent(new CustomEvent('rebound:auth',{detail:{client,user}}));}
 function open(){document.getElementById('authDialog').showModal();}
 async function loadClient(){
  try{const response=await fetch('/api/auth-config',{cache:'no-store'});config=await response.json();if(config.enabled){const {createClient}=await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');client=createClient(config.url,config.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});const {data:{session}}=await client.auth.getSession();renderAccount(session?.user);client.auth.onAuthStateChange((event,session)=>{renderAccount(session?.user);if(event==='SIGNED_IN'){status('Signed in successfully.');if(document.getElementById('authDialog').open)setTimeout(()=>document.getElementById('authDialog').close(),500);}});}}catch{config={enabled:false};}
