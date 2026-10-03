@@ -6,7 +6,9 @@ const logoMark='<img class="brand-logo" src="rebound-logo.png" alt="" style="wid
 for(const file of ['index.html','focus-area.html','school-hub.html']){
  const filePath='dist/'+file;
  const source=fs.readFileSync(filePath,'utf8');
- const updated=source.replaceAll(legacyMark,logoMark).replaceAll('<img class="brand-logo" src="rebound-logo.png" alt="">',logoMark);
+ let updated=source.replaceAll(legacyMark,logoMark).replaceAll('<img class="brand-logo" src="rebound-logo.png" alt="">',logoMark);
+ if(file==='index.html')updated=updated.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" type="image/png" href="rebound-logo.png">');
+ else updated=updated.replace('<head>','<head><link rel="icon" type="image/png" href="rebound-logo.png">');
  if(updated!==source)fs.writeFileSync(filePath,updated);
 }
 const assets={};const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.png':'image/png','.zip':'application/zip'};
