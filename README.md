@@ -1,54 +1,70 @@
-# Rebound
-A zero-API-cost, device-local catch-up planner for students returning after missed classes.
+<div align="center">
 
-## Run
-Requires Node.js (used only for local serving and tests). No installation or API keys.
+# 🚀 🤖 REBOUND 🧸 ✨
+### *Turn Falling Behind into a Gamified Fresh Start!* 🎮📚
 
-    node serve.mjs
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3p5NmxweXAwbm1weW81ZDRocHZhMjFzb3prYW93czlycmtkZGNxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svvAQQyVY9/giphy.gif" width="220px" alt="Cute Toy Robot Dancing" />
 
-Open http://127.0.0.1:4173. Run scheduling tests with `node --test tests/planner.test.mjs`.
-The app consists of plain HTML, CSS, and JavaScript modules in `dist/`. Any static HTTP server can serve that directory. Opening index.html directly with file:// is not supported because of browser module restrictions.
+[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=for-the-badge&logo=github)](https://github.com/Raj-max-pixal/Rebound)
+[![Stars](https://img.shields.io/badge/Stars-⭐_0-yellow.svg?style=for-the-badge)](https://github.com/Raj-max-pixal/Rebound/stargazers)
+[![Forks](https://img.shields.io/badge/Forks-🍴_0-orange.svg?style=for-the-badge)](https://github.com/Raj-max-pixal/Rebound/network/members)
+[![Deploy Status](https://img.shields.io/badge/Deployment-Live-4c1?style=for-the-badge&logo=vercel)](https://rebound-max.vercel.app/)
 
-## What works
-- A labeled, fictional sample week with a real scheduling engine.
-- Add, edit, and remove assignments; set a deadline, time estimate, and priority.
-- Seven-day planning, daily limits, and sessions of at most 25 minutes.
-- Separate warnings for missed deadlines, work that cannot fit, and work beyond the seven-day window.
-- Complete today's sessions; reduce today's remaining capacity so the plan does not refill time already spent. Undo the last mutation for nine seconds.
-- Editable teacher-request draft; nothing is sent automatically.
-- Browser-local persistence, validated JSON backup/restore, print all seven days.
-- Responsive interface, keyboard tabs, labeled forms, native modal dialogs, escaped task text.
-- Focus workspace with Pomodoro, countdown, and stopwatch modes; subject tags; browser-generated rain-like, white, and brown noise; scheduled breaks; and commitment mode that locks controls inside Rebound until the timer ends.
-- Recurring weekday timetable blocks such as Physics Monday–Friday 18:00–20:00 followed by Chemistry 20:00–21:00; overlap prevention; page reminders; and calendar export.
-- Cloud-backed device-key focus history, daily goals, streaks, subject insights, opt-in aliases, invite-code study rooms, and an opt-in seven-day leaderboard.
-- Optional unpacked Chrome/Edge Focus Guard extension: selected-domain blocking, active-tab daily browser allowances, YouTube Shorts and Instagram Reels restrictions, and YouTube Study Mode with an allowlist.
-- Rebound World: choose a study buddy, earn XP and sparks from saved focus time, grow a small study world, use a five-minute rescue when starting feels hard, and choose a low-energy 10-minute day without losing the plan.
-- FocusTown: an original child-friendly activity page with selectable study scenes, opt-in browser-generated ambient audio, animated spark effects, a 20-second Spark Dash game, and a direct 10-minute focus mission.
-- Focus Area: a separate original page for scene selection, 5/25/50-minute sessions, optional browser-made soundscapes, invite-code study rooms, a private motivation note, a paced reset, and a seven-day momentum chart.
-- School Hub: a private cloud-backed academic setup page for subject colours, terms, holidays, Week A/Week B timetable blocks, exams, and countdowns.
+<p align="center">
+  <a href="https://rebound-max.vercel.app/"><b>🌐 Launch Rebound World</b></a> •
+  <a href="#-quick-start"><b>⚡ Quick Start</b></a> •
+  <a href="#-toybox-features"><b>🧩 Toybox Features</b></a> •
+  <a href="#-how-the-magic-works"><b>🔮 How it Works</b></a>
+</p>
 
-## How the scheduler works
-`dist/planner.mjs` sorts unfinished tasks by ascending due date, then high priority for tied dates, then stable ID. It fills available time from today onward through the deadline, cutting sessions at 25 minutes. It never schedules above a day's capacity. An overdue assignment may use today's time but remains flagged. Unallocated work stays visible instead of being silently discarded. The planner does not optimize all possible orderings or understand topic prerequisites.
+---
 
-`dist/app.mjs` connects inputs and completion actions to this pure scheduler. Completing a session increments task progress and decreases today's remaining budget. New dates reset today's budget to the default. All state lives in localStorage under `rebound-plan-v1`; no assignment data is sent to a backend.
+<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="100%" height="6px" alt="Rainbow Line" />
 
-## Costs and privacy
-Runtime API cost: $0. No paid AI APIs, subscriptions, advertising, trackers, or remote fonts. Focus schedules, rooms, aliases, and session history use the Site database under a random browser device key; catch-up assignments remain browser-local. Existing ChatGPT/Codex access was used for development; this is not a claim that development AI is universally free. Hosting is through the user's available Sites capability, subject to its availability and terms.
+</div>
 
-Browser storage is device-local, not encrypted storage or multi-device sync. Do not enter sensitive personal records. Clearing site data removes the plan. The hosting provider receives normal web requests. Network access is needed to load the site; offline reload/install support is not implemented. Once loaded, planning uses local JavaScript.
+## 🎈 Welcome to Rebound!
 
-## Validation
-10 Node test cases pass, including 100 deterministic generated workload scenarios checking minute conservation, deadline constraints, session length, and capacity. Browser checks cover completion and undo, a rest day, draft generation, create/edit/delete, literal rendering of HTML-like user input, reload persistence, backup download, replacement confirmation, 390px layout, and enlarged base text. Screenshots are in `submission/`.
+**Rebound** is a zero-API-cost, device-local catch-up planner for students returning after missed classes. Combining smart scheduling, focus timers, XP rewards, custom soundscapes, and a playful virtual world, Rebound transforms academic recovery into an exciting game! 🎡🎠
 
-The browser check script uses a local installed Playwright and Edge path. For another computer, adapt those two paths or install Playwright yourself; it is not a runtime dependency. Native WebMCP was unavailable in the browser used for verification; its optional, feature-detected read-only tool has not been validated in a supported native context. Browser functionality does not depend on it.
+---
 
-## Scope limitations
-No LMS import, automatic homework extraction, AI tutoring, automatic messages, or real-user impact study. The focus timer records elapsed time, not verified attention. Commitment mode only locks Rebound controls; it cannot prevent closing the browser or clearing storage. The optional extension works only in the installed desktop Chrome/Edge profile. It cannot block phone apps, another browser, device home screens, extension removal, or all adult content. Its daily limit is approximate active-tab time, and YouTube/Instagram feed restrictions depend on their current desktop markup. Impact has not yet been tested with real students.
+<div align="center">
 
-## AI disclosure
-See `submission/DEVPOST-DRAFT.md`. AI assistance produced the initial concept proposal, code, design, tests, documentation, and demo script. The submitting student must review these, understand the final project, and truthfully describe their own contributions and learning.
+### 🧩 Toybox Features 🧸
 
-See [`submission/CREDIT-INTEGRATION-PLAN.md`](submission/CREDIT-INTEGRATION-PLAN.md) for the planned secure use of Featherless, n8n, Render, and Gen.xyz credits.
+| Sticker | Feature | Description |
+| :---: | :--- | :--- |
+| ⏰ | **Pomodoro & Focus Workspace** | Includes 25-min sprints, countdowns, and commitment mode! |
+| 🔊 | **Ambient Sound Generator** | Browser-generated rain, white, and brown noise—no external audio assets needed! |
+| 🕹️ | **FocusTown & Spark Dash** | Select study scenes, play mini 20-second spark games, and complete focus missions! |
+| 🎒 | **Cloud-Backed School Hub** | Timetable blocks (Week A/B), countdowns, subject colors, and exam tracking! |
+| 🛡️ | **Focus Guard Extension** | Domain blocking, YouTube study mode, and short-video restriction shields! |
+| 🏆 | **XP, Streaks & Leaderboards** | Level up your study buddy, track focus streaks, and climb the local leaderboard! |
 
-## Project credit
-Created by **RAJ / MULTIMAX** for the CSC Back-to-School Hackathon 2026.
+</div>
+
+<br />
+
+<div align="center">
+
+<img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="180px" alt="Pixel Gamer Cat" />
+<img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="180px" alt="Happy Cartoon Rocket" />
+
+</div>
+
+---
+
+## ⚡ Quick Start
+
+Launch Rebound locally using Node.js (no dependencies or API keys required!):
+
+```bash
+# 1. Clone the repository 
+git clone [https://github.com/Raj-max-pixal/Rebound.git](https://github.com/Raj-max-pixal/Rebound.git)
+
+# 2. Navigate to directory
+cd Rebound
+
+# 3. Start the local server
+node serve.mjs
