@@ -68,3 +68,21 @@ cd Rebound
 
 # 3. Start the local server
 node serve.mjs
+🌐 Open **`http://127.0.0.1:4173`** in your browser and start your comeback!
+
+---
+
+## 🔮 How the Magic Works
+
+<img src="https://media.giphy.com/media/l41K3l2p6x6hQzMv6/giphy.gif" align="right" width="150px" alt="Wizard Bear" />
+
+The smart scheduling engine inside `dist/planner.mjs` acts like your personal study wizard:
+
+1. 🗓️ **Sorts** unfinished tasks by ascending due date, priority, and ID.
+2. ⏱️ **Splits** study sessions into manageable **25-minute bursts**.
+3. 🛑 **Protects** your schedule with daily work capacity caps.
+4. ⚠️ **Warns** you about missed deadlines or overloaded windows without hiding tasks!
+
+---
+
+## 🔒 Privacy & Zero Cost
