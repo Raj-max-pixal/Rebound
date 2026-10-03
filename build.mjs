@@ -1,6 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {build} from 'esbuild';
+const legacyMark='<span class="brandmark">r<span>↗</span></span>';
+const logoMark='<img class="brand-logo" src="rebound-logo.png" alt="" style="width:40px;height:40px;object-fit:contain;flex:none">';
+for(const file of ['index.html','focus-area.html','school-hub.html']){
+ const filePath='dist/'+file;
+ const source=fs.readFileSync(filePath,'utf8');
+ const updated=source.replaceAll(legacyMark,logoMark).replaceAll('<img class="brand-logo" src="rebound-logo.png" alt="">',logoMark);
+ if(updated!==source)fs.writeFileSync(filePath,updated);
+}
 const assets={};const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.png':'image/png','.zip':'application/zip'};
 for(const file of fs.readdirSync('dist'))if(fs.statSync('dist/'+file).isFile()&&mime[path.extname(file)])assets['/'+file]={mime:mime[path.extname(file)],body:fs.readFileSync('dist/'+file).toString('base64')};
 const code=`import {api} from './server/api.mjs';const assets=${JSON.stringify(assets)};export default {async fetch(request,env){const p=new URL(request.url).pathname;if(p.startsWith('/api/'))return api(request,env);if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});const a=assets[p==='/'?'/index.html':p];if(!a)return new Response('Not found',{status:404});return new Response(request.method==='HEAD'?null:Uint8Array.from(atob(a.body),c=>c.charCodeAt(0)),{headers:{'Content-Type':a.mime,'Cache-Control':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'}});}};`;
