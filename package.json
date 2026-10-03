@@ -1,15 +1,47 @@
 {
   "name": "rebound-school-planner",
   "version": "1.0.0",
+  "description": "Rebound School Planner Desktop App",
+  "author": "Rebound Team",
   "private": true,
   "type": "module",
+  "main": "main.js",
   "scripts": {
     "start": "node serve.mjs",
+    "desktop": "electron .",
+    "dist:desktop": "electron-builder",
     "test": "node --test tests/planner.test.mjs tests/focus.test.mjs",
     "build": "node build.mjs"
   },
+  "build": {
+    "appId": "com.rebound.app",
+    "productName": "Rebound",
+    "directories": {
+      "output": "dist_app"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "dist/rebound-logo.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "dist/rebound-logo.png"
+    },
+    "files": [
+      "dist/**/*",
+      "server/**/*",
+      "api/**/*",
+      "db/**/*",
+      "drizzle/**/*",
+      "serve.mjs",
+      "main.js",
+      "package.json"
+    ]
+  },
   "devDependencies": {
     "drizzle-kit": "^0.31.11",
-    "drizzle-orm": "^0.45.3"
+    "drizzle-orm": "^0.45.3",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
   }
 }

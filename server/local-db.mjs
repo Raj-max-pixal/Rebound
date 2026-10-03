@@ -1,13 +1,32 @@
 import { DatabaseSync } from "node:sqlite";
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-fs.mkdirSync(".sites-runtime", { recursive: true });
-const sql = new DatabaseSync(".sites-runtime/focus-local.sqlite");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Resolve migrations from the source tree in development and the Electron
+// resources directory when running from a packaged executable.
+const migrationCandidates = [
+  path.join(__dirname, "../drizzle"),
+  path.join(process.resourcesPath || "", "app.asar", "drizzle"),
+  path.join(process.resourcesPath || "", "drizzle"),
+];
+const drizzleDir = migrationCandidates.find((candidate) => fs.existsSync(candidate));
+if (!drizzleDir) throw new Error("Rebound migrations are missing from the packaged application.");
+
+const runtimeDir = process.env.APPDATA
+  ? path.join(process.env.APPDATA, "Rebound")
+  : path.join(__dirname, "../.sites-runtime");
+
+fs.mkdirSync(runtimeDir, { recursive: true });
+const sql = new DatabaseSync(path.join(runtimeDir, "focus-local.sqlite"));
 sql.exec("CREATE TABLE IF NOT EXISTS local_migrations (name TEXT PRIMARY KEY)");
 
-for (const name of fs.readdirSync("drizzle").filter((file) => file.endsWith(".sql")).sort()) {
+for (const name of fs.readdirSync(drizzleDir).filter((file) => file.endsWith(".sql")).sort()) {
   if (!sql.prepare("SELECT name FROM local_migrations WHERE name=?").get(name)) {
-    sql.exec(fs.readFileSync(`drizzle/${name}`, "utf8"));
+    sql.exec(fs.readFileSync(path.join(drizzleDir, name), "utf8"));
     sql.prepare("INSERT INTO local_migrations(name) VALUES (?)").run(name);
   }
 }
