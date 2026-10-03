@@ -7,6 +7,10 @@ for(const file of ['index.html','focus-area.html','school-hub.html']){
  const filePath='dist/'+file;
  const source=fs.readFileSync(filePath,'utf8');
  let updated=source.replaceAll(legacyMark,logoMark).replaceAll('<img class="brand-logo" src="rebound-logo.png" alt="">',logoMark);
+ updated=updated.replace(/(?:<link rel="stylesheet" href="mobile.css">)+/g,'');
+ updated=updated.replace('</head>','<link rel="stylesheet" href="mobile.css"></head>');
+ if(!updated.includes('mobile-shell.mjs')) updated=updated.replace('</head>','<script type="module" src="mobile-shell.mjs"></script></head>');
+ if(!updated.includes('guard-mobile.mjs')) updated=updated.replace('</head>','<script type="module" src="guard-mobile.mjs"></script></head>');
  if(file==='index.html')updated=updated.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" type="image/png" href="rebound-logo.png">');
  else updated=updated.replace('<head>','<head><link rel="icon" type="image/png" href="rebound-logo.png">');
  if(updated!==source)fs.writeFileSync(filePath,updated);

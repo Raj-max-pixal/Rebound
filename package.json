@@ -10,6 +10,8 @@
     "start": "node serve.mjs",
     "desktop": "electron .",
     "dist:desktop": "electron-builder",
+    "android:sync": "npx cap sync android",
+    "android:apk": "npm run build && npx cap sync android && cd android && gradlew.bat assembleDebug",
     "test": "node --test tests/planner.test.mjs tests/focus.test.mjs",
     "build": "node build.mjs"
   },
@@ -39,9 +41,15 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.2",
     "drizzle-kit": "^0.31.11",
     "drizzle-orm": "^0.45.3",
     "electron": "^44.5.1",
-    "electron-builder": "^26.15.3"
+    "electron-builder": "^26.15.3",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
   }
 }
