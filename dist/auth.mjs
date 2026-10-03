@@ -1,4 +1,5 @@
 import './profile.mjs';
+import './brand.mjs';
 const storageKey='rebound-auth-prompt-dismissed';
 const basePath=location.pathname.replace(/[^/]*$/,'')||'/';
 let config=null,client=null,authBusy=false,signedIn=false;
