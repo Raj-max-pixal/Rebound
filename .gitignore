@@ -10,3 +10,6 @@ dist/win-unpacked/
 *.tar.gz
 *.zip
 .vercel
+.env
+.env.*
+!.env.example

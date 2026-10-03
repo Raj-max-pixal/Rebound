@@ -1,5 +1,6 @@
 import {icon} from './icon-kit.mjs';
 import {upgradeMobile} from './mobile-native.mjs';
+import {setupExperience} from './mobile-setup.mjs';
 
 const isPhone = matchMedia('(max-width: 700px)').matches || window.Capacitor?.isNativePlatform();
 
@@ -82,4 +83,6 @@ if (isPhone && !document.getElementById('mobileApp')) {
   app.querySelector('#mResetFocus').onclick = () => { guardDialog.close(); show('focus'); };
   app.querySelector('#mCloseGuard').onclick = () => guardDialog.close();
   upgradeMobile(app, show);
+  setupExperience(app, show);
+  window.dispatchEvent(new Event('rebound:mobile-ready'));
 }

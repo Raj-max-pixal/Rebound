@@ -67,7 +67,8 @@ export function upgradeMobile(app, show) {
   // ─── AVATAR WARDROBE STUDIO ───────────────────────────────────────
   let look;
   try{look=JSON.parse(localStorage.getItem('reboundWardrobe')||'{}');}catch{look={};}
-  look={skin:'#b97a50',hair:'crop',outfit:'jacket',pants:'straight',glasses:false,...look};
+  const validLook=value=>({skin:['#edbb92','#b97a50','#70452e'].includes(value?.skin)?value.skin:'#b97a50',hair:['crop','curls','long'].includes(value?.hair)?value.hair:'crop',outfit:['jacket','hoodie','tee'].includes(value?.outfit)?value.outfit:'jacket',pants:['straight','cargo'].includes(value?.pants)?value.pants:'straight',glasses:value?.glasses===true});
+  look=validLook(look);
   let draft;
 
   // Full-body SVG avatar
@@ -203,10 +204,14 @@ export function upgradeMobile(app, show) {
 
   // Mini avatar render in the account screen
   const render=()=>{
-    const full=$('.m-avatar-full');
+    const full=$('.m-avatar-full, .wardrobe-mini');
     if(full){full.className='wardrobe-mini';full.innerHTML=svg(look);}
+    app.querySelectorAll('.m-avatar-face').forEach(face=>{face.style.backgroundImage='';face.innerHTML=svg(look);});
+    document.querySelectorAll('[data-location-avatar]').forEach(face=>{face.innerHTML=svg(look);});
   };
   render();
+  window.addEventListener('rebound:avatar-refresh',()=>{try{look=validLook(JSON.parse(localStorage.getItem('reboundWardrobe')||'{}'));}catch{}render();});
+  $('#m-save-profile').addEventListener('click',render);
 
   // Open studio button (override whatever mobile-shell set)
   $('#m-open-studio').onclick=()=>{draft={...look};draw();studio.showModal();};
