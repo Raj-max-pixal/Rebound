@@ -1,0 +1,10 @@
+node_modules
+android
+dist_app
+dist_release
+.sites-runtime
+.openai
+.git
+.capacitor
+*.apk
+*.exe
