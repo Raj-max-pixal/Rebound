@@ -38,7 +38,7 @@ public class ScrollGuardService extends AccessibilityService {
     }};
     @Override protected void onServiceConnected(){lastTick=SystemClock.elapsedRealtime();handler.removeCallbacks(tick);handler.post(tick);}
     private AccessibilityNodeInfo applicationRoot(){
-        for(AccessibilityWindowInfo window:getWindows())if(window.getType()==AccessibilityWindowInfo.TYPE_APPLICATION&&window.isActive())return window.getRoot();
+        for(AccessibilityWindowInfo window:getWindows())if(window.getType()==AccessibilityWindowInfo.TYPE_APPLICATION)return window.getRoot();
         return getRootInActiveWindow();
     }
     private void inspect(){
@@ -63,6 +63,7 @@ public class ScrollGuardService extends AccessibilityService {
         }
         if(reason.isEmpty()){hide();showBadge();}
         else if(!reason.equals(modalKind)){hideBadge();if(reason.equals("ask"))ask();else intervention(reason);}
+        if(reason.equals("focus"))showBadge();
     }
     @Override public void onAccessibilityEvent(AccessibilityEvent event){
         if(event.getEventType()!=AccessibilityEvent.TYPE_VIEW_SCROLLED)return;
@@ -92,14 +93,15 @@ public class ScrollGuardService extends AccessibilityService {
     private LinearLayout panel(String kind,String title){
         hide();modalKind=kind;LinearLayout box=new LinearLayout(this);box.setOrientation(LinearLayout.VERTICAL);box.setPadding(dp(22),dp(26),dp(22),dp(24));box.setBackgroundColor(0xff151b17);
         TextView text=new TextView(this);text.setText(title);text.setTextSize(22);text.setTextColor(0xffddf5dc);box.addView(text);
-        WindowManager.LayoutParams layout=new WindowManager.LayoutParams(-1,-2,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,PixelFormat.TRANSLUCENT);layout.gravity=Gravity.CENTER;
+        box.setGravity(Gravity.CENTER_VERTICAL);
+        WindowManager.LayoutParams layout=new WindowManager.LayoutParams(-1,-1,WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,0,PixelFormat.TRANSLUCENT);layout.gravity=Gravity.CENTER;
         overlay=box;try{windows().addView(box,layout);}catch(RuntimeException error){overlay=null;modalKind="";}return box;
     }
     private void button(LinearLayout box,String text,Runnable action){Button button=new Button(this);button.setText(text);box.addView(button);button.setOnClickListener(v->action.run());}
     private void startAllowance(int minutes){prefs().edit().putBoolean(active+".started",true).putInt(active+".sessionMinutes",minutes).putLong(active+".remaining",minutes*60000L).apply();lastTick=SystemClock.elapsedRealtime();hide();}
     private void ask(){
         LinearLayout box=panel("ask","Rebound · Short videos\nHow many minutes do you want to watch?");
-        EditText minutes=new EditText(this);minutes.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);minutes.setText(String(prefs().getInt(active,20)));minutes.setTextColor(0xffeef6ed);minutes.setContentDescription("Watch allowance in minutes");box.addView(minutes);
+        EditText minutes=new EditText(this);minutes.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);minutes.setText(String.valueOf(prefs().getInt(active,20)));minutes.setTextColor(0xffeef6ed);minutes.setContentDescription("Watch allowance in minutes");box.addView(minutes);
         button(box,"Start watching",()->{try{int value=Integer.parseInt(minutes.getText().toString());if(value<1||value>180){minutes.setError("Choose 1–180 minutes");return;}startAllowance(value);}catch(NumberFormatException error){minutes.setError("Enter minutes");}});
         button(box,"Leave short videos",()->{hide();performGlobalAction(GLOBAL_ACTION_BACK);});
     }

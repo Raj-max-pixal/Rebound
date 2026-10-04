@@ -1,6 +1,6 @@
 {
   "name": "rebound-school-planner",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Rebound School Planner Desktop App",
   "author": "Rebound Team",
   "private": true,
@@ -12,7 +12,7 @@
     "dist:desktop": "electron-builder",
     "android:sync": "npx cap sync android",
     "android:apk": "npm run build && npx cap sync android && cd android && gradlew.bat assembleDebug",
-    "test": "node --test tests/planner.test.mjs tests/focus.test.mjs",
+    "test": "node --test tests/*.test.mjs",
     "build": "node build.mjs"
   },
   "build": {

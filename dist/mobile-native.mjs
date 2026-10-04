@@ -1,9 +1,10 @@
+import { nativeGuard } from './native-guard.mjs';
 export function upgradeMobile(app, show) {
   // Load wardrobe CSS
   const css=document.createElement('link');css.rel='stylesheet';css.href='wardrobe.css';document.head.append(css);
 
   const native=window.Capacitor?.isNativePlatform();
-  const guard=native?window.Capacitor.registerPlugin('ReboundGuard'):null;
+  const guard=nativeGuard();
   const $=s=>app.querySelector(s);
 
   // Permission status notice
@@ -206,7 +207,8 @@ export function upgradeMobile(app, show) {
   const render=()=>{
     const full=$('.m-avatar-full, .wardrobe-mini');
     if(full){full.className='wardrobe-mini';full.innerHTML=svg(look);}
-    app.querySelectorAll('.m-avatar-face').forEach(face=>{face.style.backgroundImage='';face.innerHTML=svg(look);});
+    const photo=localStorage.getItem('reboundProfilePhoto');
+    app.querySelectorAll('.m-avatar-face').forEach(face=>{face.style.backgroundImage=photo?`url(${photo})`:'';face.innerHTML=photo?'':svg(look);});
     document.querySelectorAll('[data-location-avatar]').forEach(face=>{face.innerHTML=svg(look);});
   };
   render();

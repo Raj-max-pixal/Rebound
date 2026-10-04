@@ -13,3 +13,6 @@ dist/win-unpacked/
 .env
 .env.*
 !.env.example
+
+# New APKs are published as GitHub release assets, not source history.
+Rebound-v1.0.2-test.apk

@@ -1,7 +1,8 @@
+import { nativeGuard } from './native-guard.mjs';
 export function setupExperience(app,show){
  const $=selector=>app.querySelector(selector);
  const native=!!window.Capacitor?.isNativePlatform();
- const guard=native?window.Capacitor.registerPlugin('ReboundGuard'):null;
+ const guard=nativeGuard();
  const css=document.createElement('link');css.rel='stylesheet';css.href='mobile-setup.css';document.head.append(css);
  const login=document.createElement('button');login.className='m-account-entry';login.textContent='Sign in / Create account';
  $('[data-screen="home"]').prepend(login);
@@ -17,6 +18,10 @@ export function setupExperience(app,show){
  $('#setup-settings').onclick=async()=>{if(!guard)return void($('#setup-status').textContent='Open app settings from the installed Android app.');try{await guard.openAppSettings();}catch(e){$('#setup-status').textContent=e.message;}};
  // Remove the old duplicated permission controls, whose status could be misleading.
  app.querySelectorAll('.m-permission').forEach(row=>row.hidden=true);
+ // Use one configuration surface: legacy controls overwrite daily limits and advertise unsupported filters.
+ $('#m-block-list').hidden=true;
+ $('[data-screen="profile"]').querySelectorAll('.m-section-title').forEach(title=>title.hidden=true);
+ const limitation=document.createElement('p');limitation.className='m-hint';limitation.textContent='Website filtering and YouTube channel allowlists are not available in this Android build.';setup.after(limitation);
  const apps=[['Instagram','com.instagram.android'],['YouTube','com.google.android.youtube'],['Facebook','com.facebook.katana'],['Snapchat','com.snapchat.android'],['X','com.twitter.android'],['TikTok','com.zhiliaoapp.musically'],['TikTok (alternate)','com.ss.android.ugc.trill']];
  const limits=document.createElement('article');limits.className='guard-setup';limits.innerHTML='<h2>App & short-video limits</h2><p>Choose a short-video allowance and an optional daily whole-app limit. The floating count is an estimate of detected video changes.</p><div id="managed-apps"></div><p role="status" id="limits-status"></p>';
  setup.after(limits);
