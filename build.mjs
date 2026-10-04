@@ -3,7 +3,7 @@ import path from 'node:path';
 import {build} from 'esbuild';
 const legacyMark='<span class="brandmark">r<span>↗</span></span>';
 const logoMark='<img class="brand-logo" src="rebound-logo.png" alt="" style="width:40px;height:40px;object-fit:contain;flex:none">';
-for(const file of ['index.html','focus-area.html','school-hub.html']){
+for(const file of ['index.html','focus-area.html','school-hub.html','download.html']){
  const filePath='dist/'+file;
  const source=fs.readFileSync(filePath,'utf8');
  let updated=source.replaceAll(legacyMark,logoMark).replaceAll('<img class="brand-logo" src="rebound-logo.png" alt="">',logoMark);
@@ -11,7 +11,7 @@ for(const file of ['index.html','focus-area.html','school-hub.html']){
  updated=updated.replace('</head>','<link rel="stylesheet" href="mobile.css"></head>');
  if(!updated.includes('mobile-shell.mjs')) updated=updated.replace('</head>','<script type="module" src="mobile-shell.mjs"></script></head>');
  if(!updated.includes('guard-mobile.mjs')) updated=updated.replace('</head>','<script type="module" src="guard-mobile.mjs"></script></head>');
- if(file==='index.html')updated=updated.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" type="image/png" href="rebound-logo.png">');
+ if(file==='index.html'||file==='download.html')updated=updated.replace(/<link rel="icon"[^>]*>/,'<link rel="icon" type="image/png" href="rebound-logo.png">');
  else updated=updated.replace('<head>','<head><link rel="icon" type="image/png" href="rebound-logo.png">');
  if(updated!==source)fs.writeFileSync(filePath,updated);
 }
