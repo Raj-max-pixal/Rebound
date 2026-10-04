@@ -1,989 +1,500 @@
+<!-- ========================================================= -->
+<!--                       REBOUND README                      -->
+<!--            Turn Falling Behind into a Fresh Start!        -->
+<!-- ========================================================= -->
+
 <div align="center">
+
+<img width="220" height="220" alt="Rebound Logo" src="https://raw.githubusercontent.com/Raj-max-pixal/Rebound/main/dist/rebound-logo.png" />
 
 # 🚀 🤖 REBOUND 🧸 ✨
-### *Turn Falling Behind into a Gamified Fresh Start!* 🎮📚
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3p5NmxweXAwbm1weW81ZDRocHZhMjFzb3prYW93czlycmtkZGNxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svvAQQyVY9/giphy.gif" width="220px" alt="Cute Toy Robot Dancing" />
-
-[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=for-the-badge&logo=github)](https://github.com/Raj-max-pixal/Rebound)
-[![Stars](https://img.shields.io/badge/Stars-⭐_0-yellow.svg?style=for-the-badge)](https://github.com/Raj-max-pixal/Rebound/stargazers)
-[![Forks](https://img.shields.io/badge/Forks-🍴_0-orange.svg?style=for-the-badge)](https://github.com/Raj-max-pixal/Rebound/network/members)
-[![Deploy Status](https://img.shields.io/badge/Deployment-Live-4c1?style=for-the-badge&logo=vercel)](https://rebound-max.vercel.app/)
+### **The Gamified Student Comeback Platform That Turns Academic Recovery into an Adventure.**
 
 <p align="center">
-  <a href="https://rebound-max.vercel.app/"><b>🌐 Launch Rebound World</b></a> •
-  <a href="#-quick-start"><b>⚡ Quick Start</b></a> •
-  <a href="#-toybox-features"><b>🧩 Toybox Features</b></a> •
-  <a href="#-how-the-magic-works"><b>🔮 How it Works</b></a>
+  <b>Recover from missed work, eliminate burnout, defeat procrastination, and build unstoppable momentum.</b>
 </p>
 
----
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3p5NmxweXAwbm1weW81ZDRocHZhMjFzb3prYW93czlycmtkZGNxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svvAQQyVY9/giphy.gif" width="180px" alt="Cute Toy Robot Dancing" />
+</p>
 
-<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="100%" height="6px" alt="Rainbow Line" />
+<!-- Badges Row 1: Metrics -->
+<p align="center">
+  <a href="https://github.com/Raj-max-pixal/Rebound/stargazers"><img src="https://img.shields.io/github/stars/Raj-max-pixal/Rebound?style=for-the-badge&color=f59e0b&logo=star&logoColor=white" alt="Stars"></a>
+  <a href="https://github.com/Raj-max-pixal/Rebound/network/members"><img src="https://img.shields.io/github/forks/Raj-max-pixal/Rebound?style=for-the-badge&color=3b82f6&logo=git&logoColor=white" alt="Forks"></a>
+  <a href="https://github.com/Raj-max-pixal/Rebound/issues"><img src="https://img.shields.io/github/issues/Raj-max-pixal/Rebound?style=for-the-badge&color=10b981&logo=github" alt="Issues"></a>
+  <a href="https://github.com/Raj-max-pixal/Rebound/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Raj-max-pixal/Rebound?style=for-the-badge&color=8b5cf6" alt="License"></a>
+  <a href="https://rebound-max.vercel.app/"><img src="https://img.shields.io/badge/Deployment-Live%20on%20Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"></a>
+</p>
+
+<!-- Badges Row 2: Tech Specs -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Android%20%7C%20Desktop-ff69b4?style=flat-square&logo=google-chrome&logoColor=white">
+  <img src="https://img.shields.io/badge/Runtime-Node.js%20v20+-339933?style=flat-square&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/Mobile-Capacitor%20v8.5-119EFF?style=flat-square&logo=capacitor&logoColor=white">
+  <img src="https://img.shields.io/badge/Desktop-Electron%20v44-47848F?style=flat-square&logo=electron&logoColor=white">
+  <img src="https://img.shields.io/badge/Database-Drizzle%20%2B%20SQLite%20%2F%20Supabase-2563EB?style=flat-square&logo=supabase&logoColor=white">
+  <img src="https://img.shields.io/badge/Audio-Web%20Audio%20API%20(Zero--Asset)-orange?style=flat-square&logo=audacity&logoColor=white">
+  <img src="https://img.shields.io/badge/Security-Local--First%20%26%20Zero--Cost-success?style=flat-square&logo=shield&logoColor=white">
+</p>
+
+<!-- Navigation Bar -->
+<p align="center">
+  <a href="#-welcome-to-rebound">Welcome</a> •
+  <a href="#-vision">Vision</a> •
+  <a href="#-why-rebound">Why Rebound?</a> •
+  <a href="#-what-makes-rebound-different">The Difference</a> •
+  <a href="#-core-features">Features</a> •
+  <a href="#-screenshots--showcase">Showcase</a> •
+  <a href="#-resources--links">Resources & Links</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-getting-started">Get Started</a> •
+  <a href="#-downloads--releases">Releases</a>
+</p>
+
+<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="100%" height="5px" alt="Rainbow Divider" />
 
 </div>
 
-## 🎈 Welcome to Rebound!
+---
 
-**Rebound** is a zero-API-cost, device-local catch-up planner for students returning after missed classes. Combining smart scheduling, focus timers, XP rewards, custom soundscapes, and a playful virtual world, Rebound transforms academic recovery into an exciting game! 🎡🎠
+# 🌟 Welcome to Rebound
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Raj-max-pixal/Rebound/main/submission/desktop.png" width="95%" alt="Rebound Desktop Dashboard Preview" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);" />
+</div>
+
+<br>
+
+**Rebound** is not just another boring checklist or generic calendar app.
+
+It is an **all-in-one, gamified student comeback operating system** engineered specifically for real students dealing with real life: sickness, absences, missed deadlines, social burnout, exam anxiety, and the overwhelming spiral of falling behind.
+
+Instead of staring at a wall of red overdue badges and paralyzing guilt, Rebound turns academic catch-up into an interactive RPG adventure. With a personal animated **Study Buddy**, smart **25-minute Pomodoro bursts**, **FocusTown** virtual study scenes, browser-synthesized **ambient soundscapes**, and a cross-device **Focus Guard** to protect you from doomscrolling, Rebound gives every student a fresh, empowering start.
+
+> *"You didn't fail. You just paused. Now it's time to Rebound."* 🚀✨
 
 ---
 
 <div align="center">
-
-### 🧩 Toybox Features 🧸
-
-| Sticker | Feature | Description |
-| :---: | :--- | :--- |
-| ⏰ | **Pomodoro & Focus Workspace** | Includes 25-min sprints, countdowns, and commitment mode! |
-| 🔊 | **Ambient Sound Generator** | Browser-generated rain, white, and brown noise—no external audio assets needed! |
-| 🕹️ | **FocusTown & Spark Dash** | Select study scenes, play mini 20-second spark games, and complete focus missions! |
-| 🎒 | **Cloud-Backed School Hub** | Timetable blocks (Week A/B), countdowns, subject colors, and exam tracking! |
-| 🛡️ | **Focus Guard Extension** | Domain blocking, YouTube study mode, and short-video restriction shields! |
-| 🏆 | **XP, Streaks & Leaderboards** | Level up your study buddy, track focus streaks, and climb the local leaderboard! |
-
+  <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="140px" alt="Pixel Gamer Cat" />
+  <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="140px" alt="Happy Cartoon Rocket" />
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="140px" alt="Typing Cat" />
 </div>
 
-<br />
+---
+
+# 🎯 Vision
+
+Our mission is radically student-centric:
+
+> **Democratize academic comeback tools by making recovery motivating, accessible, 100% free of subscription paywalls, and deeply fun.**
+
+Most productivity software is made for corporate project managers tracking quarterly OKRs. Students don't need enterprise gantt charts—they need:
+1. **Clarity over chaos:** An automated study wizard that mathematically breaks scary backlogs into 25-minute actionable bites.
+2. **Positive psychological reinforcement:** XP, leveling up, avatar customizations, and streak shields instead of shameful overdue counters.
+3. **Total digital autonomy:** 100% device-local storage capability, zero mandatory API keys, and privacy-respecting offline functionality.
+
+Whether you missed 2 days or 2 months of school, Rebound builds a realistic, low-friction ramp back to academic excellence.
+
+---
+
+# 💡 Why Rebound?
+
+Traditional student planners and productivity tools actively make student anxiety worse:
+
+- ❌ **Overwhelming Red Ink:** Red notification badges and negative reinforcement punish you for being sick or tired.
+- ❌ **Over-Complicated Setup:** Demands hours of manual tagging, time-blocking, and kanban configurations.
+- ❌ **No Dopamine Feedback Loop:** Crossing off a text task offers zero excitement.
+- ❌ **Distraction Vulnerability:** Students switch tabs to YouTube or Instagram and lose 3 hours to short-form algorithms.
+- ❌ **High API & Subscription Costs:** Paywalls block basic features behind monthly recurring fees.
+
+### Rebound Flips the Script:
+
+✔ **Zero-Shame Rescheduling:** The intelligent algorithm dynamically adjusts workloads based on remaining days and daily energy caps.  
+✔ **Live Animated Companion:** Your pet/robot buddy grows, celebrates wins, and changes mood alongside your study progress.  
+✔ **FocusTown & Spark Dash:** Gamified micro-missions and 20-second spark breaks keep your dopamine levels high while studying.  
+✔ **Native Focus Guard Protection:** Active domain shielding, YouTube short-video limits, and anti-doomscroll shields.  
+✔ **Zero-Cost Ambient Sound Engine:** Procedural rain, white noise, and brown noise generated directly via Web Audio API—no streaming latency or server bills.  
+✔ **Private & Local-First:** Your assignments and personal data stay securely stored on your device.
+
+---
+
+# ✨ What Makes Rebound Different?
+
+| Feature / Capability | Traditional Planner Apps | Rebound Gamified System 🧸 |
+| :--- | :---: | :---: |
+| **Recovery Philosophy** | Punitive (Red badges, overdue guilt) | **Empowering Comeback Ramp** 🌈 |
+| **Interactive Companion** | ❌ None | **✅ Animated Study Buddy with Wardrobe** 🐾 |
+| **Task Splitting** | ❌ Manual planning required | **✅ Auto 25-Min Micro-Burst Engine** ⏱️ |
+| **Focus Environments** | ❌ Static boring screens | **✅ FocusTown Scenes & Spark Dash** 🕹️ |
+| **Anti-Distraction** | ❌ None (or expensive external extensions) | **✅ Integrated Focus Guard & Shield** 🛡️ |
+| **Ambient Soundscapes** | ❌ External Spotify / YouTube required | **✅ Procedural Web Audio Synth (0 assets)** 🎧 |
+| **Cost & Privacy** | Paid subscriptions & cloud tracking | **100% Local-First & $0.00 Runtime Cost** 🔒 |
+| **Cross-Platform** | Web only or proprietary mobile | **Web + Android (APK) + Desktop (Electron)** 📱 |
+
+---
+
+# 🚀 Key Highlights
+
+<div align="center">
+  <img src="https://media.giphy.com/media/l41K3l2p6x6hQzMv6/giphy.gif" width="160px" alt="Wizard Bear" />
+</div>
+
+### 🧠 Smart Catch-Up Algorithm
+The scheduling engine automatically reads your backlog, evaluates upcoming exam dates and submission deadlines, factors in your personal daily capacity, and arranges an optimal schedule that guarantees you finish without pulling dangerous all-nighters.
+
+### 🎮 Gamified Comeback Loop
+Earn **XP (Experience Points)** for every finished focus block! Unlock adorable outfits, hats, and room decorations for your Study Buddy, maintain streaks with streak-freeze protection, and climb local study leaderboards.
+
+### 🛡️ Focus Guard & Anti-Doomscroll Shield
+Rebound includes both native Android accessibility controls and a companion browser extension that restricts addictive short-form video feeds (YouTube Shorts, Instagram Reels, TikTok) while keeping educational resources wide open.
+
+### 🔊 Procedural Ambient Audio Engine
+Say goodbye to tab-switching to stream lofi beats. Rebound synthesizes pure brown noise, deep pink noise, and soothing rainfall directly inside the browser using mathematical audio nodes—crystal-clear sound with zero bandwidth and zero battery drain.
+
+---
+
+# 🎨 Core Features
+
+```
+                                 REBOUND ECOSYSTEM
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │                                                                             │
+  │   🎒 School Hub          ⏱️ Focus Mode           🧸 Study Buddy             │
+  │   • Timetable A/B        • 25m Pomodoro          • Mood Engine              │
+  │   • Subject Color Codes  • Ambient Soundscapes   • Wardrobe Customizer      │
+  │   • Exam Countdowns      • Commitment Mode       • XP & Leveling            │
+  │                                                                             │
+  │   🕹️ FocusTown           🛡️ Focus Guard          🧠 Catch-Up Planner        │
+  │   • Virtual Scenes       • Domain Shield         • Deadline Priority Engine │
+  │   • 20s Spark Dash       • Short-Video Blocker   • Task Auto-Splitter       │
+  │   • Mission Rewards      • Usage Diagnostics     • Overload Capacity Alerts │
+  │                                                                             │
+  └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 🎒 School Hub & Timetable Management
+- Supports alternating **Week A / Week B** school schedules.
+- Visual color-coded subject tags for instant recognition.
+- Real-time countdown clocks to upcoming assessments and exams.
+
+### ⏱️ Deep Work Workspace
+- Classic 25/5 Pomodoro cadence with optional deep work commitment lock.
+- Procedural audio synthesizer (Brown noise, Pink noise, Rain soundscapes).
+- Real-time visual progress arcs and motivational milestone alerts.
+
+### 🕹️ FocusTown & Spark Dash
+- Jump into interactive 2D study scenes that reflect your real-time progress.
+- Take 20-second **Spark Dash** active mental breaks designed to refresh focus without trapping you in social media loops.
+
+### 🧸 Buddy & Wardrobe System
+- A responsive companion that gets tired when you slack off and energetic when you smash tasks!
+- Unlockable hats, shirts, glasses, and badges funded exclusively through earned study XP.
+
+---
+
+# 📸 Screenshots & Showcase
 
 <div align="center">
 
-<img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="180px" alt="Pixel Gamer Cat" />
-<img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="180px" alt="Happy Cartoon Rocket" />
+### 🖥️ Desktop Experience
+<img src="https://raw.githubusercontent.com/Raj-max-pixal/Rebound/main/submission/desktop.png" width="90%" alt="Rebound Desktop Workspace" style="border-radius: 10px; margin-bottom: 20px;" />
+
+<br>
+
+### 📱 Android & Mobile Companion
+<img src="https://raw.githubusercontent.com/Raj-max-pixal/Rebound/main/submission/mobile.png" width="50%" alt="Rebound Mobile App" style="border-radius: 10px; margin-bottom: 20px;" />
 
 </div>
 
 ---
 
-## ⚡ Quick Start
+# 🌐 Resources & Links
 
-Launch Rebound locally using Node.js (no dependencies or API keys required!):
+<div align="center">
+
+| 🔗 Resource | 🚀 Quick Access | 📌 Details & Purpose |
+| :--- | :---: | :--- |
+| **🌐 Live Web App** | [![Open App](https://img.shields.io/badge/Launch-Rebound_World-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://rebound-max.vercel.app/) | Instant browser version on Vercel |
+| **💻 GitHub Repository** | [![Repository](https://img.shields.io/badge/GitHub-Raj--max--pixal%2FRebound-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Raj-max-pixal/Rebound) | Official source code, PRs, and issues |
+| **📦 Android APK (v1.0.1)** | [![Download APK](https://img.shields.io/badge/Download-Rebound_APK_v1.0.1-34D399?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Raj-max-pixal/Rebound/raw/main/Rebound-v1.0.1.apk) | Direct Android installation package |
+| **🧪 Testing APK (v1.0.2)** | [![Download Test APK](https://img.shields.io/badge/Download-Backend_Test_APK-F59E0B?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Raj-max-pixal/Rebound/raw/main/Rebound-backend-test.apk) | Latest build with Guard plugin updates |
+| **𝕏 Creator Twitter / X** | [![Twitter Follow](https://img.shields.io/badge/Follow-%40Raja__x__20-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Raja_x_20) | Creator updates, development demos & tech logs |
+| **🛠️ Backend Docs** | [![Backend Guide](https://img.shields.io/badge/Docs-Backend_Setup-blue?style=for-the-badge&logo=markdown)](https://github.com/Raj-max-pixal/Rebound/blob/main/BACKEND_SETUP.md) | Self-hosting server & SQLite instructions |
+| **⚡ Supabase Guide** | [![Supabase Guide](https://img.shields.io/badge/Docs-Supabase_Cloud-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://github.com/Raj-max-pixal/Rebound/blob/main/SUPABASE_SETUP.md) | Auth, cloud sync, and schema migrations |
+
+</div>
+
+---
+
+# 🏗 System Architecture
+
+```
+                                   ┌─────────────────────────────────┐
+                                   │         Student / User          │
+                                   └────────────────┬────────────────┘
+                                                    │
+                                     Touch / Mouse / Keyboard
+                                                    │
+                                                    ▼
+                 ┌──────────────────────────────────┴──────────────────────────────────┐
+                 ▼                                                                     ▼
+      ┌───────────────────────┐                                             ┌───────────────────────┐
+      │   Desktop / Web UI    │                                             │    Android Mobile     │
+      │   (Vite / HTML5 / JS) │                                             │   (Capacitor 8.5)     │
+      └──────────┬────────────┘                                             └──────────┬────────────┘
+                 │                                                                     │
+                 ├───────────────────────────────┐     ┌───────────────────────────────┤
+                 ▼                               ▼     ▼                               ▼
+      ┌───────────────────────┐       ┌───────────────────────┐       ┌───────────────────────┐
+      │  Catch-Up Planner     │       │  Buddy & Wardrobe     │       │  Focus Guard Native   │
+      │  (dist/planner.mjs)   │       │  (XP, Level, Sprites) │       │  (ReboundGuard Bridge)│
+      └──────────┬────────────┘       └──────────┬────────────┘       └──────────┬────────────┘
+                 │                               │                               │
+                 └───────────────────────────────┼───────────────────────────────┘
+                                                 ▼
+                                ┌─────────────────────────────────┐
+                                │       Web Audio Synthesizer     │
+                                │   (Zero-Asset Ambient Engine)   │
+                                └────────────────┬────────────────┘
+                                                 │
+                                                 ▼
+                 ┌───────────────────────────────┴───────────────────────────────┐
+                 ▼                                                               ▼
+    ┌───────────────────────────┐                                   ┌───────────────────────────┐
+    │    Local Storage Engine   │                                   │    Optional Cloud Sync    │
+    │  • localStorage           │                                   │  • Supabase Edge Auth     │
+    │  • SQLite (Drizzle ORM)   │                                   │  • Cross-device profiles  │
+    └───────────────────────────┘                                   └───────────────────────────┘
+```
+
+### Architectural Highlights
+1. **Local-First Core:** Operates 100% offline via browser `localStorage` or SQLite. No network required to study.
+2. **Capacitor Native Bridge:** Android builds leverage custom Java plugins (`ReboundGuard`) for device usage monitoring, app blocking, and overlay alerts.
+3. **Pure Math Audio Node Tree:** The ambient soundscape generator routes procedural white noise buffers through low-pass biquad filters to craft endless non-repeating rain without audio files.
+4. **Decoupled Extension:** Chrome/Brave/Edge extension runs service-worker rules that safeguard attention across desktop browsing.
+
+---
+
+# ⚙ Technology Stack
+
+<div align="center">
+
+| Layer | Technologies & Tools |
+| :--- | :--- |
+| **🖥️ Frontend Core** | Modern Vanilla JS (ES Modules), HTML5 Canvas, CSS Custom Properties, Tailwind-inspired design tokens |
+| **📱 Mobile Packaging** | Capacitor v8.5, Android Gradle SDK, Native Accessibility & Usage Stats APIs |
+| **💻 Desktop Packaging** | Electron v44, Node.js IPC, Native window chrome controls |
+| **🧩 Extension** | Chrome Extensions Manifest V3, Declarative Net Request, Content Scripts |
+| **💾 Persistence** | Browser `localStorage` (Offline Default), Drizzle ORM, SQLite / PostgreSQL |
+| **☁️ Optional Cloud** | Supabase Auth (JWT), Supabase Storage, Edge Functions (TypeScript) |
+| **🔊 Audio Engine** | Native Web Audio API (`AudioContext`, `BiquadFilterNode`, `AudioBufferSourceNode`) |
+| **🚀 Deployment** | Vercel Serverless CDN, GitHub Releases, Android APK packages |
+
+</div>
+
+---
+
+# 📂 Project Structure
 
 ```bash
-# 1. Clone the repository 
-git clone [https://github.com/Raj-max-pixal/Rebound.git](https://github.com/Raj-max-pixal/Rebound.git)
+Rebound/
+├── android/                 # Native Android project (Capacitor 8.5)
+│   └── app/src/main/        # Java bridge, manifest, native splash & icons
+├── api/                     # Cloud proxy and serverless endpoints
+├── db/                      # Database schema and Drizzle ORM models
+│   └── schema.ts            # Catch-up tasks, subjects, profiles & XP tables
+├── dist/                    # Compiled production assets & icons
+│   ├── planner.mjs          # Mathematical catch-up scheduling wizard
+│   └── rebound-logo.png     # Official high-res logo
+├── extension/               # Chromium Focus Guard extension (Manifest V3)
+│   ├── background.mjs       # Shield background worker
+│   ├── feed-guard.js        # Anti-doomscroll content script
+│   └── popup.html           # Quick focus controller popup
+├── server/                  # Local Node.js development & test backend
+│   ├── api.mjs              # Local REST endpoints
+│   └── local-db.mjs         # SQLite database driver
+├── submission/              # Promotional showcase screenshots
+│   ├── desktop.png          # High-resolution desktop showcase
+│   └── mobile.png           # High-resolution mobile showcase
+├── supabase/                # Cloud authentication & database migrations
+├── build.mjs                # Production bundle pipeline
+├── capacitor.config.ts      # Native Capacitor app configuration
+├── main.js                  # Electron desktop application entry point
+├── package.json             # Scripts, dependencies & metadata
+└── serve.mjs                # Zero-dependency local development server
+```
 
-# 2. Navigate to directory
+---
+
+# 🚀 Getting Started
+
+You can run Rebound in under 60 seconds with no complex database or cloud setup!
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Raj-max-pixal/Rebound.git
 cd Rebound
+```
 
-# 3. Start the local server
+### 2️⃣ Run the Local Web App (Zero External Dependencies)
+```bash
 node serve.mjs
 ```
+Open **`http://127.0.0.1:4173`** in your browser. All planner features, sounds, and buddy interactions work immediately!
 
-🌐 Open **`http://127.0.0.1:4173`** in your browser and start your comeback!
-
----
-
-## 🔮 How the Magic Works
-
-<img src="https://media.giphy.com/media/l41K3l2p6x6hQzMv6/giphy.gif" align="right" width="150px" alt="Wizard Bear" />
-
-The smart scheduling engine inside `dist/planner.mjs` acts like your personal study wizard:
-
-1. 🗓️ **Sorts** unfinished tasks by ascending due date, priority, and ID.
-2. ⏱️ **Splits** study sessions into manageable **25-minute bursts**.
-3. 🛑 **Protects** your schedule with daily work capacity caps.
-4. ⚠️ **Warns** you about missed deadlines or overloaded windows without hiding tasks!
-
----
-
-## 🔒 Privacy & Zero Cost
-
-┌──────────────────────────────────────────────┐
-│  💰 Runtime API Cost : $0.00                 │
-│  🔒 Data Privacy    : Device-Local Storage   │
-│  🌐 Backend Dep     : None Required          │
-└──────────────────────────────────────────────┘
-
-
-Your catch-up assignments remain 100% saved in your browser's local storage (`localStorage`). No tracking, no remote fonts, no subscription fees! 🥳✨
-
----
-
-<div align="center">
-
----
-
-<div align="center">
-
-<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="220px" alt="Cute Celebration Animation" />
-
-# 🎮 THE REBOUND EXPERIENCE
-
-### *Study less like a machine. Come back like a player.* 🚀
-
-Rebound isn't just another productivity dashboard.
-
-It's designed around one simple idea:
-
-> **Falling behind doesn't mean you're finished. It means it's time to REBOUND.** 💪
-
-Every unfinished assignment becomes a mission.
-Every focus session becomes XP.
-Every completed task moves your world forward.
-Every streak makes your study buddy stronger. 🧸✨
-
-</div>
-
----
-
-## 🗺️ Your Rebound Journey
-
-```text
-        😵 FALLING BEHIND
-               │
-               ▼
-        📚 ADD MISSED WORK
-               │
-               ▼
-        🧠 SMART PLANNER
-               │
-               ▼
-       🗓️ DAILY MISSIONS
-               │
-               ▼
-        ⏱️ FOCUS SESSION
-               │
-               ▼
-          ⭐ EARN XP
-               │
-               ▼
-        🔥 BUILD STREAK
-               │
-               ▼
-        🧸 LEVEL UP BUDDY
-               │
-               ▼
-        🎉 COMEBACK MODE
-               │
-               ▼
-         🚀 REBOUND!
+### 3️⃣ Run as a Desktop App (Electron)
+```bash
+npm install
+npm run desktop
 ```
 
-<div align="center">
-
-<img src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif" width="180px" alt="Rocket Animation" />
-
-</div>
-
----
-
-# 🧸 Meet Your Study Buddy
-
-Your Rebound world isn't empty.
-
-You have a little companion that grows with your progress. 🌱
-
-### 🎮 Your buddy reacts to your progress
-
-| Action                     | Reaction              |
-| -------------------------- | --------------------- |
-| ✅ Complete a task          | 🎉 Celebration        |
-| ⏱️ Finish a focus sprint   | ⭐ XP reward           |
-| 🔥 Maintain streak         | 💪 Growth             |
-| 💤 Take too many breaks    | 😴 Sleepy mode        |
-| 🏆 Reach a new level       | 🚀 Level-up animation |
-| 🎯 Complete daily missions | 🥳 Celebration        |
-| 📚 Clear backlog           | 👑 Comeback mode      |
-
-<div align="center">
-
-<img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="200px" alt="Happy Character" />
-
-### **Your progress isn't just a number.**
-
-### **You can SEE it.** 👀✨
-
-</div>
-
----
-
-# 🎯 Focus Missions
-
-Rebound converts boring study sessions into short missions.
-
-### 📝 Mission Example
-
-```text
-╭─────────────────────────────────────╮
-│ 🎯 TODAY'S MISSION                  │
-├─────────────────────────────────────┤
-│                                     │
-│ 📚 Computer Networks                │
-│                                     │
-│ Finish: TCP/IP Architecture         │
-│                                     │
-│ ⏱️ 25 Minutes                       │
-│ ⭐ +50 XP                            │
-│ 🔥 Streak +1                        │
-│                                     │
-│        [ START MISSION ]             │
-│                                     │
-╰─────────────────────────────────────╯
+### 4️⃣ Build the Android APK
+```bash
+npm install
+npm run android:apk
 ```
-
-Instead of:
-
-> "I need to study for 3 hours."
-
-Rebound turns it into:
-
-> **"I only need to complete this one mission."** 🎯
+The compiled debug APK will be generated under `android/app/build/outputs/apk/debug/`.
 
 ---
 
-# ⏱️ Focus Mode
+# 📦 Downloads & Releases
+
+Direct access to compiled packages:
+
+- 📱 **[Rebound-v1.0.1.apk](https://github.com/Raj-max-pixal/Rebound/raw/main/Rebound-v1.0.1.apk)** — Stable standalone Android installation.
+- 🧪 **[Rebound-backend-test.apk](https://github.com/Raj-max-pixal/Rebound/raw/main/Rebound-backend-test.apk)** — Preview build with enhanced Focus Guard permissions and Supabase account sync.
+- 🌐 **[Live Web Version](https://rebound-max.vercel.app/)** — Works on any device with a modern browser.
+
+---
+
+# 🔌 Core Modules Deep-Dive
 
 <div align="center">
-
-### 🍅 25 MINUTES
-
-# FOCUS → COMPLETE → REWARD → REPEAT
-
+  <img src="https://media.giphy.com/media/unQ3IJU2RG7DO/giphy.gif" width="160px" alt="Coding Cat" />
 </div>
 
-The focus workspace is built around short, manageable study bursts.
+### 1. 🧙 The Planner Engine (`dist/planner.mjs`)
+The planner doesn't just list tasks—it mathematically redistributes them:
+- **Priority Weighing:** Evaluates urgency = `(Exam/Assignment Deadline - Today) / Weight`.
+- **Chunking Algorithm:** Automatically splits intimidating 3-hour assignments into focused 25-minute Pomodoro sprints.
+- **Burnout Circuit Breaker:** Hard caps daily study load to prevent late-night crashes.
 
-### Focus Flow
+### 2. 🛡️ Focus Guard Engine (`extension/` & `android/`)
+- Detects URL parameters for YouTube Shorts, Instagram Reels, and TikTok feeds.
+- Instantly renders a calming recovery intervention modal reminding the student of their current mission.
+- Keeps educational videos and research tabs completely functional.
 
-```text
-┌───────────────┐
-│   🎯 SELECT   │
-│    MISSION    │
-└───────┬───────┘
-        ↓
-┌───────────────┐
-│  🔊 CHOOSE    │
-│   SOUNDSCAPE  │
-└───────┬───────┘
-        ↓
-┌───────────────┐
-│   ⏱️ 25 MIN   │
-│    FOCUS      │
-└───────┬───────┘
-        ↓
-┌───────────────┐
-│   🎉 COMPLETE  │
-│    MISSION    │
-└───────┬───────┘
-        ↓
-┌───────────────┐
-│   ⭐ EARN XP   │
-└───────┬───────┘
-        ↓
-┌───────────────┐
-│  🔥 STREAK UP  │
-└───────────────┘
+### 3. 🔊 The Zero-Asset Soundscape Synth
+Instead of shipping heavy 50MB MP3 sound loops, Rebound generates continuous sound using the browser's native audio processing graph:
+```javascript
+// Example: Pure brown noise generated procedurally
+const bufferSize = 2 * audioCtx.sampleRate;
+const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+const output = noiseBuffer.getChannelData(0);
+let lastOut = 0.0;
+for (let i = 0; i < bufferSize; i++) {
+    const white = Math.random() * 2 - 1;
+    output[i] = (lastOut + (0.02 * white)) / 1.02;
+    lastOut = output[i];
+    output[i] *= 3.5; // Gain staging
+}
 ```
 
 ---
 
-# 🔊 Built-In Ambient Soundscapes
+# 🔒 Privacy & Security First
 
-No external audio files required.
+Students deserve safe digital tools that don't sell their study habits or harvest private notes.
 
-Rebound generates ambient sounds directly in the browser. 🎧
+┌────────────────────────────────────────────────────────┐
+│  💰 Runtime API Cost        : $0.00                    │
+│  🔒 Student Data Privacy    : 100% Device-Local First  │
+│  🛡️ Tracking / Telemetry    : Zero Third-Party Trackers│
+│  🌐 Cloud Authentication    : Optional (Supabase JWT)  │
+└────────────────────────────────────────────────────────┘
 
-### Available sound environments
-
-🌧️ Rain
-🌊 White Noise
-🌑 Brown Noise
-🌲 Focus Ambience
-
-The goal is simple:
-
-**Less distraction → deeper focus → better sessions.**
-
-<div align="center">
-
-<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="200px" alt="Music Animation" />
-
-</div>
+- **No Surveillance:** Rebound never uploads your schedule, grades, or task names to advertising networks.
+- **Offline Reliability:** All features remain accessible on airplanes, in offline libraries, or in low-connectivity areas.
+- **Complete Data Export:** Export and backup your entire study profile as clean JSON at any time.
 
 ---
 
-# 🕹️ FocusTown
+# 🗺 Development Roadmap
 
-Welcome to **FocusTown**.
+### 🏁 Phase 1: Foundation (Completed ✅)
+- [x] Mathematical catch-up scheduling algorithm.
+- [x] Animated Study Buddy with emotion reactions.
+- [x] Zero-asset Web Audio ambient sound synthesizer.
+- [x] 20-second Spark Dash gamified focus breaks.
+- [x] Android APK build via Capacitor.
+- [x] Chromium Focus Guard extension prototype.
 
-Your study environment becomes a small virtual world where different scenes represent different moods.
+### 🚀 Phase 2: Enhanced Mobile & Social (In Progress 🔨)
+- [ ] Direct push notifications for study streak reminders.
+- [ ] Offline-first peer-to-peer study rooms (Local WiFi sync).
+- [ ] Customizable soundscape presets (Rain + Campfire + Vinyl crackle).
+- [ ] Google Calendar & Canvas LMS two-way sync.
 
-```text
-        🏠 FOCUSTOWN
-
-   🌳          ☁️          🌳
-      🏡                 🏠
-
-        🧸
-       /|\
-       / \
-
-   📚 STUDY AREA
-
-       ⭐
-    [ FOCUS ]
-
-   🌙       🌲       🌲
-```
-
-Choose your environment.
-
-Choose your mission.
-
-Start your comeback.
+### 🔮 Phase 3: The Ultimate Rebound World
+- [ ] Full 8-bit RPG exploration mode for FocusTown.
+- [ ] Community shared cosmetic wardrobe items.
+- [ ] Cross-device end-to-end encrypted backup.
 
 ---
 
-# ⚡ Spark Dash
-
-Need a tiny break?
-
-Play **Spark Dash** — a short mini-game designed to give your brain a quick reset without turning your break into a 45-minute gaming session. 😭🎮
-
-### Rules
-
-```text
-🎮 GAME TIME
-     ↓
-⏱️ 20 SECONDS
-     ↓
-⭐ COLLECT SPARKS
-     ↓
-🏆 SCORE POINTS
-     ↓
-📚 RETURN TO STUDY
-```
-
-### The philosophy
-
-> **Break your brain. Don't break your schedule.** 😎
-
----
-
-# 🛡️ Focus Guard
-
-Rebound also includes a productivity shield designed to reduce common digital distractions.
-
-### 🧱 Protection Features
-
-* 🚫 Domain blocking
-* ▶️ YouTube study mode
-* 📱 Short-video restriction
-* ⏱️ Usage limits
-* 🔔 Focus reminders
-* 🧠 Distraction warnings
-
-Instead of simply saying:
-
-> "Don't use Instagram."
-
-Rebound tries to create a boundary:
-
-```text
-📱 SOCIAL MEDIA
-      ↓
-⏱️ TIME LIMIT
-      ↓
-⚠️ WARNING
-      ↓
-🛡️ FOCUS GUARD
-      ↓
-📚 BACK TO MISSION
-```
-
----
-
-# 📊 Your Progress Dashboard
-
-Your dashboard turns study activity into visible progress.
-
-### Track:
-
-| 📈 Metric     | What it shows             |
-| ------------- | ------------------------- |
-| ⭐ XP          | Total experience earned   |
-| 🔥 Streak     | Consecutive focus days    |
-| 🎯 Missions   | Completed study missions  |
-| ⏱️ Focus Time | Total focused minutes     |
-| 📚 Backlog    | Remaining unfinished work |
-| 🏆 Level      | Overall progression       |
-| 🎮 Game Score | Spark Dash performance    |
-
-<div align="center">
-
-### 📈 PROGRESS SHOULD FEEL LIKE PROGRESS.
-
-<img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" width="180px" alt="Progress Animation" />
-
-</div>
-
----
-
-# 🧠 Smart Catch-Up Planning
-
-The planner is designed specifically for students who have fallen behind.
-
-Instead of randomly attacking the backlog, Rebound considers:
-
-### 🗓️ Deadline
-
-Tasks with earlier deadlines receive higher urgency.
-
-### 🔥 Priority
-
-Important academic work can be prioritized.
-
-### ⏱️ Available Capacity
-
-The planner avoids creating unrealistic daily workloads.
-
-### 🧩 Task Splitting
-
-Large workloads can be broken into smaller focus sessions.
-
----
-
-## 🔮 Planner Logic
-
-```text
-             📚 BACKLOG
-                  │
-                  ▼
-       ┌────────────────────┐
-       │ Sort unfinished    │
-       │ tasks               │
-       └─────────┬──────────┘
-                 ↓
-       📅 Due Date
-                 ↓
-       🔥 Priority
-                 ↓
-       🔢 Task ID
-                 ↓
-       ┌────────────────────┐
-       │ Calculate daily    │
-       │ capacity           │
-       └─────────┬──────────┘
-                 ↓
-       ⏱️ Split into sessions
-                 ↓
-       ⚠️ Detect overload
-                 ↓
-       🎯 Generate missions
-```
-
----
-
-# 🏫 School Hub
-
-Rebound isn't only about individual tasks.
-
-The School Hub brings your academic schedule into one place.
-
-### Features
-
-📅 Timetable
-📚 Subjects
-🎨 Subject colors
-🔄 Week A / Week B
-⏳ Exam countdowns
-📝 Catch-up assignments
-🎯 Study missions
-
----
-
-# 🧩 Designed Around Students
-
-Rebound follows a simple UX philosophy:
-
-### ❌ Don't overwhelm the student.
-
-### ❌ Don't show 50 complicated analytics.
-
-### ❌ Don't turn productivity into punishment.
-
-### ✅ Show the next useful action.
-
-### ✅ Make progress visible.
-
-### ✅ Reward consistency.
-
-### ✅ Make coming back feel exciting.
-
-<div align="center">
-
-<img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" width="200px" alt="Happy Animation" />
-
-</div>
-
----
-
-# 🏗️ Technical Architecture
-
-```text
-                         ┌──────────────────┐
-                         │    REBOUND UI    │
-                         │ HTML / CSS / JS  │
-                         └────────┬─────────┘
-                                  │
-                    ┌─────────────┼─────────────┐
-                    │             │             │
-                    ▼             ▼             ▼
-               🎯 Planner     ⏱️ Focus      🎮 Games
-                    │             │             │
-                    └─────────────┼─────────────┘
-                                  │
-                                  ▼
-                         🧠 Application Logic
-                                  │
-                    ┌─────────────┼─────────────┐
-                    │             │             │
-                    ▼             ▼             ▼
-                📚 Tasks      ⭐ XP System    🛡️ Guard
-                    │             │             │
-                    └─────────────┼─────────────┘
-                                  │
-                                  ▼
-                         💾 Local Storage
-```
-
-### Core principles
-
-* ⚡ Client-first
-* 🔒 Privacy-first
-* 💰 Zero runtime API cost
-* 📦 Minimal dependencies
-* 🌐 Browser-native functionality
-* 📴 Works without mandatory backend services
-
----
-
-# 🧪 Technology Stack
-
-<div align="center">
-
-| Technology      | Purpose                                 |
-| --------------- | --------------------------------------- |
-| 🟨 JavaScript   | Core application logic                  |
-| 🔷 TypeScript   | Typed application modules               |
-| 🟧 HTML5        | Application structure                   |
-| 🟦 CSS3         | UI, animations and responsive design    |
-| 🟩 Supabase     | Cloud-backed school/account features    |
-| 💾 LocalStorage | Device-local persistence                |
-| 🌐 Web APIs     | Timers, audio and browser functionality |
-
-</div>
-
----
-
-# 🚀 Performance Philosophy
-
-Rebound is designed to stay lightweight.
-
-### ⚡ No unnecessary heavy processing
-
-### 🔌 No mandatory external API calls
-
-### 💾 Local-first data handling
-
-### 🎧 Browser-generated audio
-
-### 🧩 Modular application features
-
-### 📱 Responsive interface
-
-The goal is:
-
-> **Open → Start → Focus.**
-
-No 17-step onboarding ceremony. 😂
-
----
-
-# 🎨 Design Philosophy
-
-Rebound intentionally combines:
-
-### 🧸 Cute
-
-Friendly characters and playful visuals.
-
-### 🎮 Gamified
-
-XP, levels, missions and mini-games.
-
-### 📚 Academic
-
-Timetables, deadlines, subjects and assignments.
-
-### 🧠 Functional
-
-The interface still prioritizes getting work done.
-
-### ✨ The result
-
-**A productivity app that feels like a game without turning studying into another distraction.**
-
----
-
-# 🧪 Why Rebound?
-
-Students don't always fail because they don't care.
-
-Sometimes they simply:
-
-* Miss a few classes.
-* Fall behind.
-* Get overwhelmed.
-* Lose track of assignments.
-* Avoid looking at the backlog.
-* Keep postponing the comeback.
-
-Then the backlog becomes bigger.
-
-Rebound is built around breaking that cycle.
-
-```text
-Missed Work
-    ↓
-Overwhelmed
-    ↓
-Avoidance
-    ↓
-More Backlog
-    ↓
-More Stress
-    ↓
-        💥
-
-          REBOUND
-             ↓
-       Small Missions
-             ↓
-       Focus Sessions
-             ↓
-          XP + 🔥
-             ↓
-          Progress
-             ↓
-       Back on Track 🚀
-```
-
----
-
-# 🏆 The Comeback System
-
-<div align="center">
-
-### EVERY COMEBACK STARTS WITH ONE SMALL WIN.
-
-</div>
-
-```text
-⭐ Complete 1 Mission
-        ↓
-🔥 Start a Streak
-        ↓
-🎯 Complete More Missions
-        ↓
-🧸 Level Up Buddy
-        ↓
-🏆 Clear Backlog
-        ↓
-🚀 ENTER COMEBACK MODE
-```
-
----
-
-# 🛣️ Roadmap
-
-### ✅ Completed
-
-* [x] Smart catch-up planner
-* [x] Pomodoro focus workspace
-* [x] Ambient sound generation
-* [x] XP system
-* [x] Study streaks
-* [x] FocusTown
-* [x] Spark Dash
-* [x] School Hub
-* [x] Focus Guard
-* [x] Local-first storage
-* [x] Responsive UI
-* [x] Deployment
-
-### 🔨 Future Ideas
-
-* [ ] 📱 Native Android app
-* [ ] 🍎 iOS support
-* [ ] 🤖 AI-powered study planning
-* [ ] 📊 Advanced study analytics
-* [ ] 🧠 Personalized difficulty adjustment
-* [ ] 👥 Friend challenges
-* [ ] 🏆 Global leaderboards
-* [ ] 🎨 More FocusTown environments
-* [ ] 🧸 More companion characters
-* [ ] 🎮 More micro-games
-* [ ] 📚 AI study assistant
-* [ ] 🔔 Smart notification system
-* [ ] ☁️ Cross-device synchronization
-
----
-
-# 💡 What We Learned
-
-Building Rebound taught us that productivity software doesn't have to feel corporate or boring.
-
-The biggest lessons were:
-
-### 🎯 1. Small actions beat huge plans
-
-Breaking a large workload into manageable missions makes the experience less intimidating.
-
-### 🧠 2. Gamification needs purpose
-
-XP and animations should reinforce productive behavior rather than become the product itself.
-
-### 🔒 3. Privacy can be a feature
-
-A productivity application doesn't always need to send everything to a server.
-
-### ⚡ 4. Browser APIs are powerful
-
-Timers, audio generation, storage and other browser capabilities can create surprisingly rich experiences without expensive infrastructure.
-
-### 🎨 5. UX matters
-
-A technically powerful planner is useless if students don't want to open it.
-
----
-
-# 🧗 Challenges We Faced
-
-Building Rebound wasn't completely smooth.
-
-### Challenge 1 — Making productivity fun
-
-We needed to balance:
-
-```text
-🎮 FUN
-  +
-📚 PRODUCTIVITY
-  =
-🧸 REBOUND
-```
-
-Too much gamification could become distracting.
-
-Too little would make the app feel like another boring planner.
-
----
-
-### Challenge 2 — Keeping it affordable
-
-We wanted Rebound to remain accessible without requiring expensive AI APIs or infrastructure.
-
-So we focused heavily on:
-
-**Local processing + browser APIs + lightweight architecture.**
-
----
-
-### Challenge 3 — Managing workload realistically
-
-A planner shouldn't tell a student to complete 12 hours of work in 4 hours.
-
-Rebound therefore considers daily capacity and warns when the workload becomes unrealistic.
-
----
-
-# 🌍 Vision
-
-<div align="center">
-
-<img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" width="180px" alt="Celebration" />
-
-# 🌎 THE BIGGER IDEA
-
-### Make academic recovery feel achievable.
-
-</div>
-
-Rebound started as a simple catch-up planner.
-
-But the larger vision is to create a student productivity ecosystem where:
-
-📚 Academic planning
-+
-🎮 Gamification
-+
-🧠 Smart scheduling
-+
-🛡️ Digital wellbeing
-+
-🧸 Personal progression
-
-come together in one experience.
-
----
-
-# 🎥 Demo
-
-<div align="center">
-
-### 🚀 Try Rebound Live
-
-<a href="https://rebound-max.vercel.app/">
-
-# 🌐 LAUNCH REBOUND WORLD →
-
-</a>
-
-<br/>
-
-<img src="https://media.giphy.com/media/26n6WywJyh39n1pBu/giphy.gif" width="250px" alt="Computer Animation" />
-
-</div>
-
----
-
-# 📸 Screenshots
-
-> Add your best UI screenshots here to make the README visually stronger.
-
-```text
-📱 Dashboard
-🎯 Focus Mission
-⏱️ Focus Workspace
-🧸 Study Buddy
-🕹️ FocusTown
-🛡️ Focus Guard
-📊 Progress Dashboard
-🏫 School Hub
-```
-
-<div align="center">
-
-<!-- Replace these placeholders with your screenshots -->
-
-<img src="screenshots/dashboard.png" width="48%" alt="Rebound Dashboard" />
-<img src="screenshots/focus.png" width="48%" alt="Rebound Focus Mode" />
-
-<br/>
-
-<img src="screenshots/focustown.png" width="48%" alt="FocusTown" />
-<img src="screenshots/progress.png" width="48%" alt="Progress Dashboard" />
-
-</div>
+# ❓ Frequently Asked Questions
+
+<details>
+<summary><b>Is Rebound completely free?</b></summary>
+Yes! Rebound is open-source and free forever. There are no subscriptions, no locked features, and no paywalls.
+</details>
+
+<details>
+<summary><b>Do I need an account or internet connection to use Rebound?</b></summary>
+Not at all. Rebound is built local-first. You can open the web app, Android app, or desktop app completely offline. Cloud sign-in via Supabase is strictly optional for cross-device syncing.
+</details>
+
+<details>
+<summary><b>How does the Focus Guard protect my study time?</b></summary>
+Focus Guard intercepts algorithmic short-video traps (Shorts, Reels, TikTok) while allowing normal educational videos and reference materials to load smoothly.
+</details>
+
+<details>
+<summary><b>Can I install this on my Android phone?</b></summary>
+Yes! Download the latest compiled <code>Rebound-v1.0.1.apk</code> directly from the releases section of this repository and open it on your Android device.
+</details>
 
 ---
 
 # 🤝 Contributing
 
-Rebound is built with the idea that student productivity can always become better.
+Contributions make the open-source community an inspiring place to learn, create, and build. Any contributions you make are **greatly appreciated**!
 
-Contributions, ideas, bug reports and feature suggestions are welcome.
-
-```bash
-# Fork the project
-
-# Create your feature branch
-git checkout -b feature/amazing-feature
-
-# Commit your changes
-git commit -m "Add amazing feature"
-
-# Push your branch
-git push origin feature/amazing-feature
-
-# Open a Pull Request 🚀
-```
+1. **Fork the Project**
+2. **Create your Feature Branch:** `git checkout -b feature/AmazingFeature`
+3. **Commit your Changes:** `git commit -m "Add some AmazingFeature"`
+4. **Push to the Branch:** `git push origin feature/AmazingFeature`
+5. **Open a Pull Request**
 
 ---
 
-# 🐛 Bug Reports & Feature Ideas
-
-Found something broken?
-
-Have an idea that could make Rebound better?
-
-Open an issue and tell us:
-
-```text
-🐛 What happened?
-🔁 How can we reproduce it?
-💻 What device/browser are you using?
-📸 Screenshot / video if possible
-💡 Suggested improvement
-```
-
----
-
-# ⭐ Support Rebound
-
-If Rebound helped you, inspired you, or you simply liked the project:
-
-### ⭐ Star the repository
-
-### 🍴 Fork it
-
-### 🐛 Report bugs
-
-### 💡 Suggest features
-
-### 📢 Share it with another student
-
-Every star helps the project grow. 🚀
-
----
+# 👨‍💻 About the Creator
 
 <div align="center">
 
-# 🧸 ONE MORE MISSION.
+<img width="110" height="110" style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/256284238?v=4" alt="Raj Avatar" />
 
-# ONE MORE XP.
+### **Raj (Raj-max-pixal)**
+*Builder • Creative Developer • Student Productivity Advocate*
 
-# ONE MORE STEP.
-
-<br/>
-
-<img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" width="220px" alt="Victory Animation" />
-
-<br/>
-
-## 🚀 YOU DIDN'T FALL BEHIND.
-
-## YOU'RE READY TO REBOUND.
-
----
-
-### Built with 💖, ☕ *(not coffee 😭)* and lots of debugging
-
-### **RAJ / MULTIMAX**
-
-### CSC Back-to-School Hackathon 2026
-
-<br/>
-
-**Beyond Tech, Beyond Limit. 🚀**
-
-<br/>
-
-<a href="https://rebound-max.vercel.app/">
-
-🌐 **LAUNCH REBOUND**
-
-</a>
-
-  •  
-
-<a href="https://github.com/Raj-max-pixal/Rebound">
-
-⭐ **VIEW ON GITHUB**
-
-</a>
+<p align="center">
+  <a href="https://github.com/Raj-max-pixal"><img src="https://img.shields.io/badge/GitHub-Raj--max--pixal-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+  <a href="https://x.com/Raja_x_20"><img src="https://img.shields.io/badge/𝕏-Follow_%40Raja__x__20-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter"></a>
+  <a href="https://github.com/Raj-max-pixal/Maxie"><img src="https://img.shields.io/badge/Featured_Project-MAXie_AI-6C63FF?style=for-the-badge&logo=electron&logoColor=white" alt="MAXie"></a>
+</p>
 
 </div>
 
@@ -991,27 +502,16 @@ Every star helps the project grow. 🚀
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer&text=REBOUND%20🚀&fontSize=40&fontAlignY=65&animation=twinkling" width="100%" />
+### ⭐ If Rebound helps you get back on track, please give this repository a Star! ⭐
 
-</div>
+<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="100%" height="4px" alt="Rainbow Line" />
 
+<p align="center">
+  <b>🧸 ONE MORE MISSION • ONE MORE XP • ONE MORE STEP 🚀</b>
+</p>
 
-### 🎨 Built With Love & Pixels
-
-![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-
----
-
-### 🌟 Project Credits
-
-Created with 💖 by **RAJ / MULTIMAX** for the **CSC Back-to-School Hackathon 2026**!
-
-<img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" width="120px" alt="Dancing Sticker" />
-
-*Give this repository a ⭐ if it helped you make a comeback!*
+<p align="center">
+  <i>Built with 💖, focus, and clean code for students worldwide.</i>
+</p>
 
 </div>
