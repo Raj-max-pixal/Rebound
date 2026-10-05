@@ -224,10 +224,8 @@ Say goodbye to tab-switching to stream lofi beats. Rebound synthesizes pure brow
 | **𝕏 Creator Twitter / X** | [![Twitter Follow](https://img.shields.io/badge/Follow-%40Raja__x__20-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Raja_x_20) | Creator updates, development demos & tech logs |
 | **🛠️ Backend Docs** | [![Backend Guide](https://img.shields.io/badge/Docs-Backend_Setup-blue?style=for-the-badge&logo=markdown)](https://github.com/Raj-max-pixal/Rebound/blob/main/BACKEND_SETUP.md) | Self-hosting server & SQLite instructions |
 | **⚡ Supabase Guide** | [![Supabase Guide](https://img.shields.io/badge/Docs-Supabase_Cloud-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://github.com/Raj-max-pixal/Rebound/blob/main/SUPABASE_SETUP.md) | Auth, cloud sync, and schema migrations |
-| ** 🎬 Demo Video ** | [![Watch Demo](https://img.shields.io/badge/YouTube-Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Irr2oSq-_bY?si=M8nV4jzjejjgoctD) | Overview & walkthrough video on YouTube |
-
-
-| ** 📝 Medium Article ** | [![Read Article](https://img.shields.io/badge/Medium-Read_Article-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@rajasaranyaraj20/rebound-92ae8a7174f7) | Deep-dive blog post and overview on Medium |
+|  **🎬 Demo Video** | [![Watch Demo](https://img.shields.io/badge/YouTube-Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Irr2oSq-_bY?si=M8nV4jzjejjgoctD) | Overview & walkthrough video on YouTube |
+| **📝 Medium Article** | [![Read Article](https://img.shields.io/badge/Medium-Read_Article-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@rajasaranyaraj20/rebound-92ae8a7174f7) | Deep-dive blog post and overview on Medium |
 </div>
 ---
 
