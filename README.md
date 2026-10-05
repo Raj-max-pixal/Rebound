@@ -227,6 +227,7 @@ Say goodbye to tab-switching to stream lofi beats. Rebound synthesizes pure brow
 | ** 🎬 Demo Video ** | [![Watch Demo](https://img.shields.io/badge/YouTube-Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/Irr2oSq-_bY?si=M8nV4jzjejjgoctD) | Overview & walkthrough video on YouTube |
 </div>
 
+| ** 📝 Medium Article ** | [![Read Article](https://img.shields.io/badge/Medium-Read_Article-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@rajasaranyaraj20/rebound-92ae8a7174f7) | Deep-dive blog post and overview on Medium |
 ---
 
 # 🏗 System Architecture
